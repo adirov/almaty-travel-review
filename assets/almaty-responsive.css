@@ -1,0 +1,106 @@
+/* Responsive sizing only. Original desktop stylesheet remains authoritative. */
+@media (max-width:1000px) {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { background-image: none; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.5; }
+  #wrapper {
+    width: 100%; max-width: 100%; margin: 0;
+    background-image: var(--original-header-image, url("/almaty-travel-review/assets/images/header_bg2.jpg"));
+    background-repeat: no-repeat; background-position: center top;
+    background-size: min(182.556%, 880px) auto;
+  }
+  #header { height: auto; min-height: 0; padding-top: min(45.64vw, 220px); }
+  #main_link { top: 0; left: 0; width: 48%; height: 16vw; }
+  #langs { height: auto; }
+  #langs ul { left: auto; right: 12px; top: 6px; }
+  #langs li { width: auto; margin-left: 12px; }
+  #langs a { display: inline-block; padding: 6px 2px; }
+  #site_map_lnk { right: 10px; top: 38px; }
+  #clocks { height: auto; }
+  #top_phone, #top_phone1, #top_phone2 {
+    position: static; width: auto; height: auto; margin: 2px 14px;
+    font-size: 13px; line-height: 1.4; text-align: right;
+  }
+  #site_title { margin: 8px 14px 0; padding: 0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 1.4; }
+  #summerwinter { position: static; width: auto; height: auto; margin: 6px 14px; text-align: right; }
+  #middle { border: 0; display: flex; flex-direction: column; height: auto; }
+  #container { float: none; width: 100%; margin: 0; overflow: visible; }
+  #content { padding: 0; overflow-wrap: anywhere; }
+  .main_container { padding: 0 16px; background-size: 100% auto; box-sizing: border-box; }
+  #top_menu { position: static; height: auto; display: flex; flex-wrap: nowrap; font-family: Arial, Helvetica, sans-serif; line-height: 1.4; margin: 4px 0 12px; }
+  #top_menu1, #top_menu2, #top_menu3 {
+    position: static; width: auto; height: auto; flex: 1 1 30%;
+    padding: 10px 2px; box-sizing: border-box; font-size: 13px; line-height: 1.4; white-space: nowrap;
+  }
+  #top_menu a { font-size: 13px; line-height: 1.4; }
+  h1 { font-family: Arial, Helvetica, sans-serif; font-size: 22px; line-height: 1.3; }
+  .main_container h2, .main_container h3, .main_container h4 { font-family: Arial, Helvetica, sans-serif !important; font-size: 19px !important; line-height: 1.35 !important; margin: 20px 0 12px !important; padding: 0 !important; }
+  .main_container div[style], .main_container p, .main_container li { font-size: inherit !important; line-height: 1.5 !important; }
+  .main_container p { margin: 0 0 10px !important; }
+  .main_container p:empty, .main_container li:empty, .mobile-empty-spacer { display: none !important; }
+  .main_container br + br { display: none; }
+  .main_container ul:not(.slides):not(.controls) { margin: 0 0 12px !important; padding-left: 20px !important; }
+  .main_container li { margin: 0 0 8px !important; }
+  .main_container li ul { margin: 0 !important; }
+  img { max-width: 100% !important; height: auto !important; box-sizing: border-box; }
+  iframe, video { max-width: 100%; }
+  table { width: 100% !important; max-width: 100%; table-layout: fixed; }
+  td, th { overflow-wrap: anywhere; }
+  .main_container > table td { width: auto !important; }
+  .main_container .wide-data-table { display: block; overflow-x: auto; table-layout: auto; -webkit-overflow-scrolling: touch; }
+  .main_container .wide-data-table > tbody { display: table; min-width: 640px; width: 100%; }
+  #sideLeft, #sideRight { float: none; position: static; left: auto; width: auto; margin: 18px 16px; }
+  #left_menu { margin-top: 0; }
+  #sideLeft { display: contents; }
+  #mobile-menu-toggle { display: block !important; order: -3; margin: 8px 16px; padding: 10px 12px; color: #006db9; background: transparent; border: 1px solid #bdd6e3; text-align: left; font: bold 15px/1.4 Arial, sans-serif; cursor: pointer; }
+  #left_menu { order: -2; margin: 0 16px 12px; }
+  #left_menu.mobile-menu-closed { display: none; }
+  #container { order: 0; min-width: 0; }
+  #left_banner { order: 1; margin: 18px 16px; }
+  #sideRight { order: 2; min-width: 0; }
+  .photo_slider { width: 100%; max-width: 460px; height: auto; aspect-ratio: 460 / 340; padding-bottom: 0; }
+  .photo_slider .slides { height: auto; }
+  .photo_slider .slides li { height: auto; margin: 0 !important; }
+  .photo_slider .controls { padding-left: 5px !important; }
+  .photo_slider .controls li { margin: 0 4px 0 0 !important; }
+  iframe[src*="youtube"] { width: 100%; height: auto; aspect-ratio: 460 / 259; }
+  .main_container img[align="left"], .main_container img[align="right"] { float: none; display: block; margin: 8px auto; }
+  #left_menu tbody { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); column-gap: 16px; }
+  #left_menu tr, #left_menu td { display: block; }
+  #left_menu table tr td { height: auto; padding: 0; }
+  #left_menu a { display: block; padding: 9px 0; font-size: 14px; line-height: 1.35; }
+  #left_banner, #right_banner { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 10px; margin: 12px 0; }
+  #left_banner > *, #right_banner > * { max-width: 100%; }
+  #sideRight { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px; align-items: start; }
+  #photo_gal { margin-top: 0; }
+  #right_banner { display: block; margin: 0; }
+  .reviews-sidebar { grid-column: 1 / -1; width: auto !important; margin: 8px 0 !important; }
+  .reviews-card { padding: 12px !important; }
+  .reviews-rating-container { margin: 8px 0 !important; }
+  .instagram-feed-container { box-sizing: border-box; width: 100% !important; min-width: 0; padding: 18px 16px !important; margin-top: 12px !important; }
+  .ig-header { gap: 10px !important; margin-bottom: 14px !important; }
+  .ig-profile-pic-container, .ig-profile-pic { width: 44px !important; height: 44px !important; }
+  .ig-username { font-size: 16px !important; }
+  .ig-user-info { min-width: 0; }
+  .ig-handle, .ig-tagline { font-size: 13px !important; }
+  .ig-follow-btn { padding: 10px 12px !important; font-size: 14px !important; }
+  .ig-grid { gap: 8px !important; }
+  #footer { height: auto; min-height: 195px; }
+  #footer_container { width: auto; }
+  #bottom_menu { height: auto; padding: 70px 16px 16px; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  #bottom_menu a { display: inline-block; padding: 8px 0; }
+  #copy, #create { position: static; margin: 12px 16px; }
+  input, select, textarea { max-width: 100%; box-sizing: border-box; font-size: 16px; }
+  input[type=text], input[type=email], textarea { width: 100% !important; padding: 8px; }
+  input[type=text], input[type=email], select { min-height: 44px; }
+  textarea { min-height: 96px; }
+  input[type=submit], button { min-height: 44px; }
+  #order_form table td { display: block; width: auto !important; padding: 4px 0; }
+}
+
+@media (min-width: 600px) and (max-width:1000px) {
+  #left_menu tbody { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .main_container { padding-inline: 28px; }
+  #sideRight { grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); }
+  #sideRight .reviews-sidebar { grid-column: auto; }
+}
+

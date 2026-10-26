@@ -1,0 +1,1146 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 12px/18px Arial;
+  width: 100%;
+  background: transparent url("/almaty-travel-review/assets/images/header_bg2.jpg") no-repeat top center;
+}
+
+h1 {
+  font-family: "Arial Narrow";
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+a {
+  color: #0059b5;
+  outline: none;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Begin of styles for the demonstration (you can remove them) */
+a.expand {
+  width: 150px;
+  display: block;
+  margin: 10px 0 0;
+}
+
+a.expand:hover {
+  height: 500px;
+}
+
+/* End of of styles for the demonstration */
+p {
+  margin: 0px;
+}
+
+img {
+  border: none;
+}
+
+input {
+  vertical-align: middle;
+}
+
+#wrapper {
+  width: 986px;
+  margin: 0 auto;
+}
+
+#summerwinter {
+  position: absolute;
+  top: 340px;
+  left: 500px;
+  width: 150px;
+  height: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #0075a7;
+  text-align: center;
+}
+
+#summerwinter a {
+  font-weight: bold;
+  color: #0075a7;
+}
+
+#summerwinter span {
+  color: #95b5c3;
+}
+
+/* Header
+-----------------------------------------------------------------------------*/
+#header {
+  height: 359px;
+  position: relative;
+}
+
+#langs {
+  width: 100%;
+  height: 37px;
+  color: yellow;
+}
+
+#main_link {
+  position: absolute;
+  width: 300px;
+  height: 120px;
+  z-index: 999;
+}
+
+
+#langs ul {
+  display: block;
+  position: absolute;
+  left: 730px;
+  top: 8px;
+}
+
+#langs li {
+  list-style: none;
+  float: left;
+  width: 30px;
+}
+
+#clocks {
+  position: relative;
+  width: 100%;
+  height: 91px;
+  color: #c3ebff;
+}
+
+.clocks_time {
+  position: absolute;
+  width: 100px;
+  height: 83px;
+  font-size: 83px;
+  line-height: 70px;
+  text-align: center;
+}
+
+#clocks_hour {
+  right: 220px;
+}
+
+#clocks_minute {
+  right: 100px;
+}
+
+#clocks_week {
+  position: absolute;
+  top: 67px;
+  left: 780px;
+  font-size: 14px;
+  color: #6591b7;
+}
+
+#top_phone {
+  position: absolute;
+  top: -20px;
+  right: 50px;
+  height: 90px;
+  width: 650px;
+  font: bold italic 19px/70px Verdana;
+  color: #535353;
+  text-align: right;
+}
+
+#top_phone1 {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  height: 90px;
+  width: 650px;
+  font: bold italic 19px/50px Verdana;
+  color: #535353;
+  text-align: right;
+}
+
+#top_phone2 {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  height: 90px;
+  width: 650px;
+  font: bold italic 19px/70px Verdana;
+  color: #535353;
+  text-align: right;
+}
+
+#top_phone span {
+  color: #0075A7;
+}
+
+#top_phone1 span {
+  color: #0075A7;
+}
+
+#top_phone2 span {
+  color: #0075A7;
+}
+
+#site_title {
+  margin-top: 3px;
+  padding-left: 25px;
+  font-size: 17px;
+  color: #000000;
+  text-transform: uppercase;
+  font-family: Arial Narrow;
+  font-weight: bold;
+}
+
+#left_menu {
+  margin-top: 50px;
+  font-size: 17px;
+  color: #006db9;
+  text-transform: uppercase;
+}
+
+#left_menu table tr td {
+  height: 61px;
+  padding-left: 50px;
+}
+
+#left_menu a {
+  color: #006db9;
+  text-decoration: none;
+}
+
+#left_menu a:hover {
+  color: #585858;
+}
+
+.left_menu_select {
+  background: transparent url("/almaty-travel-review/assets/images/select_menu2.jpg") no-repeat top right;
+  color: #585858;
+}
+
+#left_banner {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Middle
+-----------------------------------------------------------------------------*/
+#middle {
+  border-left: 230px solid transparent;
+  border-right: 217px solid transparent;
+  height: 1%;
+}
+
+#middle:after {
+  content: '.';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+}
+
+#container {
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  margin-right: -100%;
+}
+
+#content {
+  padding: 0 20px;
+}
+
+.main_container {
+  background: transparent url("/almaty-travel-review/assets/images/center_bg.jpg") repeat-y center top;
+  padding: 0 40px;
+}
+
+#center_footer {
+  background: transparent url("/almaty-travel-review/assets/images/cener_bottom_bg.jpg") no-repeat center top;
+  width: 100%;
+  height: 16px;
+}
+
+
+
+
+#top_menu {
+  position: relative;
+  height: 90px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 52px;
+  font-family: "Arial Narrow";
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#top_menu a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #002d5d;
+}
+
+#top_menu a:hover {
+  color: #0057a8;
+}
+
+#top_menu1 {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  height: 47px;
+  width: 150px;
+}
+
+#top_menu2 {
+  position: absolute;
+  top: 10px;
+  left: 174px;
+  height: 47px;
+  width: 150px;
+}
+
+#top_menu3 {
+  position: absolute;
+  top: 10px;
+  left: 334px;
+  height: 47px;
+  width: 150px;
+}
+
+
+
+
+/* Sidebar Left
+-----------------------------------------------------------------------------*/
+#sideLeft {
+  float: left;
+  width: 250px;
+  position: relative;
+  left: -230px;
+}
+
+
+/* Sidebar Right
+-----------------------------------------------------------------------------*/
+#sideRight {
+  float: right;
+  margin-right: -217px;
+  width: 217px;
+  position: relative;
+}
+
+#photo_gal {
+  margin-top: 20px;
+}
+
+.photo_gal_head {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Myriad Pro;
+  color: #525252;
+}
+
+.photo_gal_title {
+  font: "Times New Roman";
+  font-style: italic;
+  font-size: 12px;
+  color: #6f6e6f;
+  margin: 10px 0 3px 0;
+}
+
+.photo_gal_album a {
+  font: "Times New Roman";
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.photo_gal_album a:hover {
+  text-decoration: none;
+}
+
+.gal_photo {
+  background-color: #fff;
+  padding: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+#right_banner {
+  margin: 15px 0;
+}
+
+#articles {
+  margin-top: 15px;
+}
+
+.article_head {
+  margin: 20px 0 5px 0;
+}
+
+.article_image img {
+  padding: 4px;
+  border: 1px solid #c0c0c0;
+}
+
+.article_head a {
+  font: "Times New Roman";
+  font-style: italic;
+  font-size: 18px;
+  color: #b92f9a;
+}
+
+.article_anonce {
+  font: "Times New Roman";
+  font-style: italic;
+  font-size: 12px;
+  color: #5e5e5e;
+}
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+#footer {
+  height: 195px;
+  background: transparent url("/almaty-travel-review/assets/images/footer_bg2.jpg") no-repeat top center;
+  font-size: 12px;
+}
+
+#bottom_menu {
+  height: 70px;
+  padding-top: 80px;
+}
+
+#footer_container {
+  position: relative;
+  width: 986px;
+}
+
+#copy {
+  position: absolute;
+  top: 155px;
+  left: 200px;
+}
+
+#create {
+  position: absolute;
+  top: 155px;
+  left: 550px;
+}
+
+
+/* PhotoSlider
+------------------------------------------------*/
+.photo_slider {
+  position: relative;
+  width: 460px;
+  height: 300px;
+  padding-bottom: 40px;
+  overflow: hidden;
+}
+
+.photo_slider .slides {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 300px;
+  list-style: none;
+  overflow: hidden;
+}
+
+.photo_slider .slides li {
+  float: left;
+  width: 460px;
+  height: 300px;
+}
+
+.photo_slider .controls {
+  position: absolute;
+  display: block;
+  bottom: 10px;
+  left: 5px;
+  height: 11px;
+  padding: 5px 5px 3px 5px;
+  list-style: none;
+  height: 11px;
+}
+
+.photo_slider .controls li {
+  float: left;
+  width: 10px;
+  height: 11px;
+  margin: 0 3px;
+  background: transparent url("/almaty-travel-review/assets/images/photo_slider_noset.png") no-repeat;
+  cursor: pointer;
+}
+
+.photo_slider .controls li.set {
+  background: transparent url("/almaty-travel-review/assets/images/photo_slider_set.png") no-repeat;
+}
+
+
+#site_map_lnk {
+  position: absolute;
+  top: 10px;
+  right: 160px;
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+/* Instagram Feed New Design */
+.instagram-feed-container {
+  width: 986px;
+  margin: 30px auto 50px auto;
+  background: #f4f4f4;
+  border-radius: 20px;
+  padding: 40px 0 40px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #262626;
+}
+
+.ig-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 44px;
+  padding: 0 40px;
+}
+
+.ig-profile-pic-container {
+  margin-right: 30px;
+}
+
+.ig-profile-pic {
+  width: 77px;
+  height: 77px;
+  border-radius: 50%;
+  border: 1px solid #dbdbdb;
+  padding: 2px;
+  object-fit: cover;
+}
+
+.ig-user-info {
+  flex: 1;
+}
+
+.ig-username {
+  font-size: 20px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+}
+
+.ig-verified-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%230095f6' d='M19.998 3.028c-3.862 0-7.39 1.488-10.033 4.133L3.14 13.985c-2.645 2.644-4.133 6.17-4.133 10.034 0 3.862 1.488 7.39 4.133 10.033l6.825 6.824c2.644 2.645 6.17 4.133 10.033 4.133s7.39-1.488 10.033-4.133l6.825-6.824C39.49 31.41 40.978 27.88 40.978 24.017c0-3.863-1.488-7.39-4.133-10.033l-6.825-6.824C27.387 4.516 23.86 3.028 19.998 3.028z'/%3E%3Cpath fill='%23fff' d='M28.75 14.813L17.5 26.06l-6.25-6.25-2.5 2.5L17.5 31.06l13.75-13.75-2.5-2.5z'/%3E%3C/svg%3E");
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin-left: 8px;
+  background-size: contain;
+}
+
+.ig-handle {
+  font-size: 14px;
+  color: #8e8e8e;
+  margin-top: 2px;
+}
+
+.ig-tagline {
+  font-size: 14px;
+  color: #8e8e8e;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.ig-follow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4);
+}
+
+.ig-follow-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(225, 48, 108, 0.5);
+  color: #fff;
+  text-decoration: none;
+}
+
+.ig-follow-icon {
+  width: 18px;
+  height: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #f4f4f4;
+  gap: 20px;
+  padding: 0 40px;
+}
+
+.ig-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid #000;
+  border-radius: 20px;
+}
+
+.ig-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.ig-item:hover img {
+  opacity: 0.8;
+}
+
+.ig-reel-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 22px;
+  height: 22px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+
+.ig-show-more-container {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.ig-show-more-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3897f0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.ig-show-more-btn:hover {
+  background-color: #1372cc;
+}
+
+.ig-show-more-btn:disabled {
+  background-color: #b2dffc;
+  cursor: default;
+}
+
+@media (max-width: 986px) {
+  .instagram-feed-container {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .ig-header {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .ig-follow-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .ig-tagline {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .ig-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ig-header {
+    padding: 0 20px;
+  }
+
+  .ig-follow-btn {
+    width: 100%;
+    justify-content: center;
+    order: 3;
+  }
+
+  .ig-profile-pic {
+    width: 60px;
+    height: 60px;
+  }
+
+  .ig-username {
+    font-size: 16px;
+  }
+}
+
+/* ===== Google Reviews sidebar ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.reviews-sidebar {
+  margin: 20px 0;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.reviews-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  margin: 0 auto;
+}
+
+.reviews-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.google-logo {
+  display: block;
+}
+
+.reviews-title-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #3c4043;
+}
+
+.reviews-rating-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.rating-value {
+  font-size: 20px;
+  font-weight: 400;
+  color: #3c4043;
+}
+
+.rating-star svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.reviews-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  background: #1a73e8;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.reviews-btn:hover {
+  background: #1558b0;
+  text-decoration: none;
+}
+
+.ig-date {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  z-index: 2;
+}
+
+/* Instagram Modal Trigger */
+.ig-modal-trigger {
+  cursor: pointer;
+}
+
+/* Instagram Modal Styles */
+.ig-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+}
+
+.ig-modal-overlay.active {
+  display: flex;
+}
+
+.ig-modal {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: igModalSlideIn 0.3s ease;
+}
+
+@keyframes igModalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.ig-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10001;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.ig-modal-close:hover {
+  opacity: 0.7;
+}
+
+.ig-modal-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid #efefef;
+}
+
+.ig-modal-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.ig-modal-user-info {
+  flex: 1;
+}
+
+.ig-modal-username {
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
+}
+
+.ig-modal-follow-btn {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ig-modal-follow-btn:hover {
+  opacity: 0.9;
+  color: #fff;
+  text-decoration: none;
+}
+
+.ig-modal-media {
+  width: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.ig-modal-media img,
+.ig-modal-media video {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.ig-modal-content {
+  padding: 12px 16px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.ig-modal-caption {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #262626;
+  margin-bottom: 12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 0;
+  margin-left: 0;
+}
+
+.ig-modal-caption-user {
+  font-weight: 600;
+  color: #262626;
+}
+
+.ig-modal-date {
+  font-size: 12px;
+  color: #8e8e8e;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.ig-modal-link {
+  display: inline-block;
+  color: #0095f6;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ig-modal-link:hover {
+  text-decoration: underline;
+  color: #0095f6;
+}
+
+@media (max-width: 600px) {
+  .ig-modal {
+    width: 95%;
+    max-width: none;
+  }
+
+  .ig-modal-media {
+    max-height: 350px;
+  }
+
+  .ig-modal-media img,
+  .ig-modal-media video {
+    max-height: 350px;
+  }
+
+  .ig-modal-content {
+    max-height: 150px;
+  }
+}
+
+/* Instagram Modal Feed Styles */
+.ig-modal-feed {
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ig-modal-feed-container {
+  flex: 1;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.ig-modal-post {
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 16px;
+  margin-bottom: 0;
+}
+
+.ig-modal-post:last-child {
+  border-bottom: none;
+}
+
+.ig-modal-post .ig-modal-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: none;
+}
+
+.ig-modal-post .ig-modal-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.ig-modal-post .ig-modal-user-info {
+  flex: 1;
+}
+
+.ig-modal-post .ig-modal-username {
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
+}
+
+.ig-modal-post .ig-modal-follow-btn {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ig-modal-post .ig-modal-media {
+  width: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ig-modal-post .ig-modal-media img,
+.ig-modal-post .ig-modal-media video {
+  width: 100%;
+  max-height: none;
+  object-fit: contain;
+}
+
+.ig-modal-post .ig-modal-content {
+  padding: 12px 16px;
+  max-height: none;
+  overflow: visible;
+}
+
+.ig-modal-post .ig-modal-caption {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #262626;
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.ig-modal-post .ig-modal-caption-user {
+  font-weight: 600;
+  color: #262626;
+}
+
+.ig-modal-post .ig-modal-date {
+  font-size: 12px;
+  color: #8e8e8e;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.ig-modal-post .ig-modal-link {
+  display: inline-block;
+  color: #0095f6;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Loading Spinner */
+.ig-modal-loading {
+  text-align: center;
+  padding: 20px;
+}
+
+.ig-modal-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #efefef;
+  border-top-color: #262626;
+  border-radius: 50%;
+  animation: igSpin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes igSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .ig-modal-feed {
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .ig-modal-close {
+    top: 10px;
+    right: 10px;
+    color: #262626;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+  }
+}

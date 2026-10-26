@@ -1,0 +1,135 @@
+.almaty-breadcrumbs{font-size:12px;line-height:1.5;margin-bottom:12px;color:#555;overflow-wrap:anywhere}
+.almaty-seo-block{margin:18px 0;line-height:1.5}
+.almaty-seo-block h2{font-size:18px;margin:12px 0 8px}
+.almaty-seo-block h3{font-size:15px;margin:12px 0 5px}
+.almaty-seo-block p{margin:8px 0}
+.almaty-seo-block table{width:100%;border-collapse:collapse}
+.almaty-seo-block th,.almaty-seo-block td{padding:6px;border:1px solid #ccc;text-align:left;vertical-align:top}
+.almaty-demoted-heading{font-family:"Arial Narrow";font-size:18px;font-weight:bold;margin-bottom:10px}
+.almaty-missing-photo{display:inline-block;max-width:100%;box-sizing:border-box;margin:6px 0;padding:10px 12px;border:1px dashed #bbb;color:#666;font:14px/1.4 Arial,Helvetica,sans-serif}
+@media(max-width:1000px){.almaty-demoted-heading{font-family:Arial,Helvetica,sans-serif}.almaty-seo-block h2{font-size:20px}.almaty-seo-block h3{font-size:18px}.almaty-seo-block table{font-size:14px}.almaty-breadcrumbs{font-size:13px}}
+@media(min-width:986px) and (max-width:1100px){.reviews-card{max-width:100%;box-sizing:border-box}}
+@media(max-width:1000px){#fancybox-close{width:44px;height:44px;background:#fff;border:1px solid #aaa;border-radius:50%;box-shadow:0 1px 4px #666;color:#222;text-decoration:none}#fancybox-close:before{content:"×";display:block;font:30px/42px Arial,sans-serif;text-align:center}}
+
+/* New content follows the original Arial text, condensed black headings and blue links. */
+.almaty-seo-block,.almaty-tour-article{font-family:Arial,Helvetica,sans-serif;color:inherit;font-size:inherit;line-height:1.5}
+.almaty-seo-block{margin:22px 0 18px;padding:0;border:0;background:none}
+.almaty-seo-block h2,.almaty-tour-article h2{font-family:"Arial Narrow",Arial,sans-serif;font-size:18px;line-height:1.3;color:inherit;margin:20px 0 8px}
+.almaty-seo-block h3,.almaty-tour-article h3{font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.5;color:inherit;margin:14px 0 4px}
+.almaty-seo-block p,.almaty-tour-article p{margin:0 0 10px}
+.almaty-seo-block a,.almaty-tour-article a,.almaty-breadcrumbs a{color:#0059b5}
+.almaty-seo-block h2:first-child{margin-top:0}
+.almaty-route-list{margin:0 0 10px}
+.almaty-route-row{display:grid;grid-template-columns:50px minmax(0,1fr);gap:10px;align-items:start;padding:8px 0;border-bottom:1px dotted #c7d6dd;box-sizing:border-box;max-width:100%}
+.almaty-route-row:first-child{border-top:1px dotted #c7d6dd}
+.almaty-route-row dt{font-weight:bold;white-space:nowrap}
+.almaty-route-row dd{margin:0;min-width:0}
+.almaty-route-row a{display:block;text-decoration:underline;text-underline-offset:2px;overflow-wrap:break-word}
+.almaty-route-note{color:#555}
+.almaty-tour-article ul,.almaty-tour-article ol{margin:6px 0 12px;padding-left:20px}
+.almaty-tour-article li{margin:0 0 6px}
+.almaty-tour-article li ul{margin:4px 0 8px}
+.almaty-tour-article h2:empty,.almaty-tour-article h3:empty{display:none}
+.almaty-breadcrumbs{font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.5;color:#666;margin-bottom:12px}
+.almaty-video-link{font-family:Arial,Helvetica,sans-serif;font-size:inherit;line-height:1.5;margin:6px 0 16px}
+.almaty-video-link a{display:inline-block;padding:4px 0}
+.almaty-missing-photo{border:0;border-left:2px solid #bdd6e3;background:none;padding:4px 8px;font:inherit;color:#666}
+/* Social modules use the same white page and restrained link treatment as the sidebars. */
+.instagram-feed-container{box-sizing:border-box;max-width:986px;margin:24px auto 20px;padding:18px 20px;background:transparent;border-radius:0;border-top:1px solid #d6e3e9;font:12px/18px Arial,Helvetica,sans-serif;color:#222}
+.ig-header{padding:0;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.ig-profile-pic-container{margin-right:0}
+.ig-profile-pic-container,.ig-profile-pic{width:44px;height:44px}
+.ig-profile-pic{box-sizing:border-box;border-radius:0;border:1px solid #d6e3e9;padding:2px}
+.ig-username{font-family:"Arial Narrow",Arial,sans-serif;font-size:18px;font-weight:bold;line-height:1.3}
+.ig-handle,.ig-tagline{font-size:12px;line-height:1.5;color:#555;margin-top:2px}
+.ig-follow-btn,.ig-follow-btn:hover,.ig-show-more-btn,.ig-show-more-btn:hover{background:none;color:#0059b5;border:0;border-radius:0;box-shadow:none;transform:none;font:inherit;text-decoration:underline;padding:6px 0;transition:none}
+.ig-follow-icon{display:none}
+.ig-grid{padding:0;background:none;gap:12px}
+.ig-item{border:1px solid #d6e3e9;border-radius:0}
+.ig-user-info{min-width:0}
+.reviews-sidebar{font-family:Arial,Helvetica,sans-serif;max-width:100%}
+.reviews-card{width:auto;max-width:100%;box-sizing:border-box;border:0;border-top:1px solid #d6e3e9;border-radius:0;box-shadow:none;padding:12px 0;text-align:left}
+.reviews-header,.reviews-rating-container{justify-content:flex-start}
+.reviews-title-text{font-family:"Arial Narrow",Arial,sans-serif;font-size:18px;font-weight:bold;color:inherit}
+.rating-value{font-size:18px;color:inherit}
+.reviews-btn,.reviews-btn:hover{background:none;color:#0059b5!important;border:0;border-radius:0;text-decoration:underline;text-align:left;font:inherit;padding:4px 0}
+#fancybox-close{z-index:10104}
+.almaty-seo-block a:focus-visible,.almaty-breadcrumbs a:focus-visible,#mobile-menu-toggle:focus-visible,.ig-follow-btn:focus-visible,.reviews-btn:focus-visible{outline:2px solid #0059b5;outline-offset:3px}
+@media(max-width:1000px){
+ .main_container .almaty-seo-block,.almaty-tour-article{font-size:16px;line-height:1.5}
+ .main_container .almaty-seo-block{margin:22px 0;padding:0}
+ .main_container .almaty-seo-block h2,.main_container .almaty-tour-article h2{font-size:19px!important;line-height:1.35!important;color:inherit;margin:22px 0 10px!important}
+ .main_container .almaty-seo-block h2:first-child{margin-top:0!important}
+ .main_container .almaty-seo-block h3,.main_container .almaty-tour-article h3{font-size:16px!important;line-height:1.5!important;margin:16px 0 4px!important}
+ .almaty-route-row{grid-template-columns:58px minmax(0,1fr);gap:10px;padding:0}
+ .almaty-route-row dt{padding:12px 0}
+ .almaty-route-row a{min-height:44px;box-sizing:border-box;padding:12px 0}
+ .almaty-breadcrumbs{font-size:13px;line-height:1.6}
+ #mobile-menu-toggle{color:#0059b5;border-color:#c1d9e6;background:#eef7fb}
+ .instagram-feed-container{padding:16px!important;margin:20px auto!important;font-size:14px;line-height:1.5}
+ .ig-header{padding:0;margin-bottom:12px!important;gap:10px!important}
+ .ig-profile-pic-container{margin:0}
+ .ig-follow-btn{font-size:14px!important;min-height:44px;box-sizing:border-box;padding:10px 0!important}
+ .reviews-card{padding:12px 0!important}
+ .reviews-btn{min-height:44px;box-sizing:border-box;padding:12px 0}
+ .ui-datepicker{width:min(320px,calc(100vw - 24px))!important;box-sizing:border-box;padding:8px;font:15px/1.4 Arial,Helvetica,sans-serif;z-index:1001!important}
+ .ui-datepicker table{margin:6px 0 0}
+ .ui-datepicker td a,.ui-datepicker td span{display:block;min-height:36px;line-height:36px;text-align:center;padding:0}
+ .ui-datepicker .ui-datepicker-header{min-height:36px;padding:2px 0}
+ .ui-datepicker .ui-datepicker-title{line-height:32px;margin:0 36px}
+ .ui-datepicker .ui-datepicker-prev,.ui-datepicker .ui-datepicker-next{width:32px;height:32px;top:3px}
+ .ui-datepicker select.ui-datepicker-year{font-size:15px;min-height:32px;width:auto}
+}
+@media(max-width:480px){.ig-header .ig-follow-btn{flex-basis:100%;margin:0}.ig-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Header geometry: each control has its own visible and clickable area. */
+@media(min-width:1001px){
+ #langs ul{left:auto;right:200px;top:4px;display:flex;gap:4px;align-items:center}
+ #langs li{float:none;width:30px;line-height:28px;text-align:center}
+ #langs a{display:block;line-height:28px}
+ #clocks{position:absolute;top:38px;left:400px;right:50px;width:auto;height:auto;display:flex;flex-direction:column;gap:0}
+ #top_phone,#top_phone1,#top_phone2{position:static;width:auto;height:auto;margin:0;font:bold italic 19px/28px Verdana,sans-serif;text-align:right}
+ #top_phone{order:0}#top_phone1{order:1}#top_phone2{order:2}
+ #site_title{position:absolute;top:132px;left:25px;right:25px;margin:0;padding:0;line-height:22px}
+}
+@media(max-width:1000px){
+ #wrapper{background-image:none}
+ #header{position:relative;padding-top:calc(56px + min(35.5vw,171px));height:auto;min-height:0}
+ #header:before{content:"";position:absolute;left:0;right:0;top:44px;height:min(35.5vw,171px);background-image:var(--original-header-image,url("/almaty-travel-review/assets/images/header_bg2.jpg"));background-position:center top;background-size:min(182.556vw,880px) auto;background-repeat:no-repeat;pointer-events:none}
+ #langs{position:absolute;top:0;left:0;right:0;width:auto;height:44px;background:#eef7fb;border-bottom:1px solid #c4dce8;box-sizing:border-box;color:#234c66;font:600 14px/1.4 Arial,Helvetica,sans-serif}
+ #langs ul{position:static;display:flex;justify-content:flex-end;align-items:center;gap:8px;list-style:none;margin:0;padding:4px 12px}
+ #langs li{float:none;display:flex;align-items:center;justify-content:center;min-width:44px;height:36px;width:auto;margin:0;color:#234c66;box-sizing:border-box}
+ #langs a{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:36px;padding:0;color:#0059b5!important}
+ #site_map_lnk{top:0;left:8px;right:auto;width:44px;height:44px;display:flex;align-items:center;justify-content:center;z-index:1}
+ #main_link{top:44px;left:0;width:60%;height:min(21vw,102px)}
+ #clocks{position:static;display:flex;flex-direction:column;gap:4px;width:auto;height:auto;margin:0 16px}
+ #top_phone,#top_phone1,#top_phone2{position:static;width:auto;height:auto;margin:0;font:600 14px/1.5 Arial,Helvetica,sans-serif;text-align:center}
+ #top_phone{order:0}#top_phone1{order:1}#top_phone2{order:2}
+ #site_title{position:static;margin:10px 16px 0;padding:0;font:600 12px/1.5 Arial,Helvetica,sans-serif;text-align:center}
+ #summerwinter{position:static;width:auto;height:auto;margin:10px 16px;text-align:center;font:600 14px/1.5 Arial,Helvetica,sans-serif}
+ #top_menu{display:flex;position:static;gap:6px;height:auto;margin:4px 16px 16px;padding:0;background:none}
+ #top_menu1,#top_menu2,#top_menu3{position:static;display:flex;align-items:center;justify-content:center;flex:1 1 0;min-width:0;min-height:48px;width:auto;height:auto;padding:8px 4px;box-sizing:border-box;border:1px solid #a6cbdc;border-radius:3px;background:linear-gradient(#f6fcff,#c0e1f0);font:600 13px/1.35 Arial,Helvetica,sans-serif;white-space:normal;overflow-wrap:normal;color:#002d5d}
+ #top_menu a{display:flex;align-items:center;justify-content:center;align-self:stretch;width:100%;font:inherit;white-space:normal;overflow-wrap:normal;color:#002d5d}
+}
+
+/* Keep the legacy modal inside the viewport even during its resize animation. */
+#fancybox-wrap{max-width:calc(100vw - 80px);max-height:calc(100dvh - 80px)}
+#fancybox-inner{max-width:calc(100vw - 100px);max-height:calc(100dvh - 100px)}
+#fancybox-img{max-width:100%!important;max-height:calc(100dvh - 100px)!important;object-fit:contain}
+#ui-datepicker-div{max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);overflow-y:auto;box-sizing:border-box}
+
+/* Summer's fixed-width photo anchors must fit their existing table cells. */
+@media(max-width:1000px){
+ .main_container a.photo{width:auto!important;max-width:100%;box-sizing:border-box}
+ .main_container .photo_slider ul.slides{padding:0!important;margin-top:0!important;margin-bottom:0!important}
+ .main_container .photo_slider ul.slides>li{padding:0!important}
+ .main_container .photo_slider ul.controls{display:flex;height:44px;padding:0!important;margin:0!important;bottom:0;left:0;gap:0}
+ .main_container .photo_slider ul.controls li{display:block!important;width:44px;height:44px;float:none;margin:0!important;background-position:center;background-repeat:no-repeat}
+ #footer_container{padding-bottom:12px}
+ #bottom_menu{justify-content:center;font-size:0;line-height:0;gap:4px 16px}
+ #bottom_menu a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;line-height:1.5;padding:0}
+ #copy,#create{height:auto;min-height:0;line-height:1.5;max-width:calc(100% - 32px)}
+ #create{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px}
+ #create img{float:none;display:block}
+}

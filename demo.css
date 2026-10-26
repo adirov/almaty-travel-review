@@ -1,0 +1,3 @@
+.demo-notice{box-sizing:border-box;padding:9px 16px;background:#f1f5f8;border-bottom:1px solid #ccd9e3;color:#334d60;font:13px/1.45 Arial,sans-serif;text-align:center;overflow-wrap:anywhere}
+.demo-form-status{padding:12px;margin:12px 0;border:1px solid #b8cbd8;background:#f1f5f8;color:#23445c;font:14px/1.5 Arial,sans-serif;overflow-wrap:anywhere}
+.demo-form-status[data-error="true"]{border-color:#be7777;background:#fff4f4;color:#8a2727}
