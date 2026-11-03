@@ -7,7 +7,7 @@
 .home-video{display:block;position:relative;background:#244d60;aspect-ratio:460/259;overflow:hidden;color:#fff;text-decoration:none}
 .home-video img{display:block;width:100%;height:100%!important;object-fit:cover;opacity:.85}
 .home-video span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;text-shadow:0 1px 6px #000;font:16px/1.4 Arial,sans-serif;background:linear-gradient(transparent,#0002)}
-.home-video b{display:inline-flex;align-items:center;justify-content:center;width:54px;height:40px;border-radius:10px;background:#bf2823;color:#fff;font:20px/1 Arial,sans-serif}
+.home-video b svg{display:block;flex:none}.home-video b{display:inline-flex;align-items:center;justify-content:center;width:54px;height:40px;border-radius:10px;background:#bf2823;color:#fff;font:20px/1 Arial,sans-serif}
 .home-visual .home-photo-link{display:block;position:relative;margin-top:8px}
 .home-visual .home-photo-link img{display:block;width:100%;height:auto}
 .home-photo-caption{display:block;text-align:center;padding:10px 6px;font:italic 15px/1.4 Georgia,serif;color:var(--travel-blue)}
