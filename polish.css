@@ -1,6 +1,23 @@
 /* Design polish, 3 November: small alignment and consistency fixes.
    Loaded after owner-visual.css. The look of the site stays the same. */
 
+/* Match labels to the actual panels in the original 1800x450 artwork.
+   The mobile crop is x=640..1175, y=340..450. Its proportions must not
+   depend on the inherited 44px minimum height of the tap targets. */
+@media(min-width:1001px){
+ #top_menu1,#top_menu2,#top_menu3{top:12.5px;display:flex;align-items:center;justify-content:center;line-height:1}
+ #top_menu1{left:11px}
+ #top_menu2{left:173.5px}
+ #top_menu a{display:flex;align-items:center;justify-content:center;width:100%;height:100%;line-height:1;text-align:center}
+}
+@media(max-width:1000px){
+ #top_menu{display:block;position:relative;box-sizing:content-box;aspect-ratio:535/110;height:auto;min-height:0;padding:0;background-size:336.448598% auto;background-position:50.592885% 100%;mask-image:none;-webkit-mask-image:none}
+ #top_menu1,#top_menu2,#top_menu3{display:flex;position:absolute;top:50%;left:19.252336%;transform:translate(-50%,-50%);width:27.663551%;height:44px;min-height:44px;flex:none;margin:0;padding:0;border:0;align-items:center;justify-content:center;box-sizing:border-box;font-size:clamp(11px,3.3vw,13px);line-height:1}
+ #top_menu2{left:49.626168%}
+ #top_menu3{left:79.626168%}
+ #top_menu a{display:flex;position:static;align-items:center;justify-content:center;box-sizing:border-box;width:100%;height:100%;min-height:44px;margin:0;padding:0;line-height:1;text-align:center;white-space:nowrap}
+}
+
 /* 1. "Arial Narrow" is missing on Android, iOS and Linux, so headings, the top
    menu and the slogan fell back to Times. Windows/macOS keep the real font;
    other devices get PT Sans Narrow (OFL), which has the same proportions. */
