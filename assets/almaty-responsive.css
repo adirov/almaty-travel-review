@@ -51,7 +51,7 @@
   #sideLeft, #sideRight { float: none; position: static; left: auto; width: auto; margin: 18px 16px; }
   #left_menu { margin-top: 0; }
   #sideLeft { display: contents; }
-  #mobile-menu-toggle { display: block !important; order: -3; margin: 8px 16px; padding: 10px 12px; color: #006db9; background: transparent; border: 1px solid #bdd6e3; text-align: left; font: bold 15px/1.4 Arial, sans-serif; cursor: pointer; }
+  #mobile-menu-toggle { display: flex !important; align-items: center; justify-content: center; order: -3; margin: 8px 16px; padding: 10px 12px; color: #006db9; background: transparent; border: 1px solid #bdd6e3; text-align: center; font: bold 15px/1.4 Arial, sans-serif; cursor: pointer; }
   #left_menu { order: -2; margin: 0 16px 12px; }
   #left_menu.mobile-menu-closed { display: none; }
   #container { order: 0; min-width: 0; }

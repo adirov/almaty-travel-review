@@ -35,10 +35,10 @@
 .main_container .geo-guide>p{color:#526c74;margin:0 0 8px}
 .main_container .geo-guide ul{margin-bottom:18px}
 
-/* 3. The YouTube text link under the video poster: centred, quieter, like the
-   photo caption below it, instead of a stray left-aligned link. */
-.almaty-video-link{margin:6px 0 0!important;text-align:center;font-size:12px}
-.almaty-video-link a{color:#526c74}
+/* 3. The YouTube text link under the video poster: centred and set exactly like
+   the photo caption under the collage, so both media blocks read as a pair. */
+.main_container p.almaty-video-link{margin:0 0 14px!important;text-align:center;font:italic 15px/1.4 Georgia,serif!important}
+.almaty-video-link a{display:inline-block;padding:10px 6px;color:var(--travel-blue,#165c7a)}
 
 /* 4. Route list: day label and route name sit on one baseline. */
 .owner-home .almaty-route-row{align-items:baseline}
@@ -51,8 +51,9 @@
 
 @media(min-width:1001px){
  /* 6. Slogan no longer runs across the snowboarder's face: it wraps in the free
-    sky area under the logo, with a soft halo for contrast. */
- #site_title{max-width:470px;line-height:1.25;text-shadow:0 0 4px #fff}
+    sky area under the logo, with a soft halo for contrast. Its left edge
+    follows the "KAZAKHSTAN TRAVEL AGENCY" lettering (60px), not the box. */
+ #site_title{left:60px;max-width:470px;line-height:1.25;text-shadow:0 0 4px #fff}
  /* 7. "Гид по Казахстану" sat outside the menu table and was shifted 50px left;
     it now lines up with the other left-menu items. */
  #left_menu>a[data-geo-demo]{display:flex;align-items:center;min-height:61px;padding-left:50px}
@@ -119,4 +120,91 @@
     uneven 40-90 px holes between groups. */
  .main_container li>br,.main_container li>a>br,.main_container ul+br{display:none}
  .main_container ul:not(:has(li)){display:none}
+}
+
+/* 12. Design pass, 3 November ("живее, но без редизайна").
+   Each rule below fixes one defect seen on screenshots; see PR for before/after. */
+
+/* 12a. The white centre column had an 8-18px hole above the rounded bottom
+   (and under the leaves): the first/last child margins collapsed through
+   .main_container, so its repeat-y background stopped short of the footer
+   picture. A block formatting context keeps the margins inside. */
+.main_container{display:flow-root}
+
+/* 12b. Home page rhythm: one 28px step between the blocks and one heading
+   style, instead of 50-90px holes that came from stacked margins+paddings. */
+.owner-home .home-reviews{margin:28px 0}
+.owner-home .main_container .almaty-seo-block{margin:28px 0!important;padding:8px 0 12px!important}
+.owner-home .main_container .almaty-demoted-heading{margin-top:28px!important}
+
+/* 12c. "Туризм в Алматы": the CMS text was one paragraph broken by <br>, so it
+   read as a Word page. polish.js splits it into real paragraphs; here they get
+   the same ink colour, size and leading as the rest of the home text. */
+.owner-home .almaty-home-text{margin:0 0 12px;font-size:14px;line-height:1.7;color:#2d4249;text-wrap:pretty}
+.owner-home .almaty-home-text strong{color:var(--travel-ink)}
+
+/* 12c'. EN home only: the intro sentence above the routes was 12px black text
+   squeezed between two framed blocks, and a lone "Yurts and yurt stays" link
+   floated in default blue. Both now use the italic caption voice of the page. */
+.owner-home .main_container p[data-almaty-seo=intro]{margin:28px 0!important;text-align:center;font:italic 15px/1.6 Georgia,serif!important;color:#526c74;text-wrap:balance}
+.owner-home .main_container p[style*="text-align: center"]>a{font:italic 15px/1.4 Georgia,serif;color:var(--travel-blue)}
+
+/* 12d. Home guide links: the default bullets and bright browser-blue links did
+   not match the route list right above. Same hairline rows and colours now,
+   with one chevron from the shared icon set. */
+.geo-guide[data-geo-demo=home]>p{text-align:center;font:italic 15px/1.5 Georgia,serif;color:#526c74}
+.main_container .geo-guide[data-geo-demo=home] ul{list-style:none;margin:0 0 6px!important;padding:0!important;border-top:1px solid #deeaed}
+.main_container .geo-guide[data-geo-demo=home] li{margin:0!important;border-bottom:1px solid #deeaed}
+.geo-guide[data-geo-demo=home] li a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:8px 0;box-sizing:border-box;color:var(--travel-blue);font-size:14px;line-height:1.45;text-decoration:none}
+.geo-guide[data-geo-demo=home] li a:after{content:"";flex:none;width:14px;height:14px;background:#7fa7b3;-webkit-mask:var(--icon-chevron) center/contain no-repeat;mask:var(--icon-chevron) center/contain no-repeat}
+.geo-guide[data-geo-demo=home] li a:hover{text-decoration:underline;text-underline-offset:3px}
+
+@media(max-width:1000px){
+ .owner-home .almaty-home-text{font-size:15px;line-height:1.65!important;margin:0 0 12px!important}
+ .geo-guide[data-geo-demo=home] li a{font-size:15px;padding:10px 0}
+ /* 12e. The desktop "rounded bottom" picture of the centre column showed up on
+   phones as a 16px grey band across the screen. A fading hairline separates
+   the text from the photo banners instead. */
+ #center_footer{height:1px;width:auto;margin:30px 18px 6px;background:linear-gradient(90deg,#fff0,#cfe1e5 20%,#cfe1e5 80%,#fff0)}
+ /* 12f. Right sidebar on phones: the gallery title squeezed into a half
+   column next to two stacked banners. Now the banners form the same 2-up row
+   as "Полёт на самолёте / Юрты" above, and the gallery sits centred below. */
+ #sideRight{grid-template-columns:minmax(0,1fr)!important;gap:18px}
+ #right_banner{order:-1;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+ #right_banner>.owner-banner{margin:0}
+ #left_banner>.owner-banner{margin:0}
+ #photo_gal{margin-top:20px!important;text-align:center}
+ #photo_gal .photo_gal_head img{margin:0 auto}
+ #photo_gal img.gal_photo{display:inline-block;width:auto!important;max-width:min(100%,260px)!important}
+ .reviews-sidebar{grid-column:auto!important}
+}
+@media(min-width:600px) and (max-width:1000px){
+ /* 12g. Tablets (600-1000px): text lines ran 700+px long and the 461px photo
+   collage sat left-aligned under a full-width video. The column now keeps a
+   readable 640px measure and the video and collage share the same edges. */
+ .main_container,#left_menu,#left_banner,#sideRight{box-sizing:border-box;width:auto;max-width:640px;margin-left:auto!important;margin-right:auto!important}
+ #left_banner,#sideRight{width:calc(100% - 56px)}
+ .owner-home .home-visual{max-width:461px;margin-left:auto;margin-right:auto}
+ .home-reviews .review-excerpts{grid-template-columns:1fr 1fr}
+ #right_banner{grid-column:auto}
+ #center_footer{width:calc(100% - 56px);max-width:600px;margin-left:auto;margin-right:auto}
+}
+@media(min-width:1001px){
+ /* 12h. Left menu: 17px capitals wrapped "Прогулки на вертолетах и самолетах"
+   onto three lines, so the fixed 61px rows looked alternately empty and
+   crowded. At 15px with a little tracking every item fits in one or two lines
+   and the rows read as an even column; the rows and colours are unchanged. */
+ #left_menu{font-size:15px;letter-spacing:.02em;line-height:1.3}
+}
+@media(min-width:600px) and (max-width:1000px){
+ /* Instagram block followed the full window width while every other block
+    keeps the 640px column; its left edge now lines up with the text. */
+ .instagram-feed-container{max-width:640px!important;margin-left:auto!important;margin-right:auto!important}
+}
+@media(min-width:881px) and (max-width:1000px){
+ /* Above 880px the header picture is narrower than the window and showed hard
+    vertical edges of the sky. Its sides now dissolve like its bottom does. */
+ #header:before{
+  -webkit-mask:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent) center top/880px 100% no-repeat,linear-gradient(#000 62%,transparent 90%);-webkit-mask-composite:source-in;
+  mask:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent) center top/880px 100% no-repeat,linear-gradient(#000 62%,transparent 90%);mask-composite:intersect}
 }
