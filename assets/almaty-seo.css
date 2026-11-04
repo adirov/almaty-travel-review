@@ -153,3 +153,5 @@
 .owner-program-list li{margin:0 0 10px;line-height:1.5}
 #top_phone1 a,#top_phone a,#top_phone2 a{color:#000;text-decoration:none}
 @media(max-width:600px){.owner-photo-grid{grid-template-columns:1fr}.owner-photo-grid img{height:auto;max-height:650px;object-fit:contain}}
+/* Tour photo grids (owner photos, Nov 2026): keep two columns on phones so the programme stays near the top. */
+@media(max-width:600px){.owner-photo-grid.tour-photos{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.owner-photo-grid.tour-photos img{height:150px!important;max-height:none;object-fit:cover}}
