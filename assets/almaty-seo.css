@@ -155,3 +155,6 @@
 @media(max-width:600px){.owner-photo-grid{grid-template-columns:1fr}.owner-photo-grid img{height:auto;max-height:650px;object-fit:contain}}
 /* Tour photo grids (owner photos, Nov 2026): keep two columns on phones so the programme stays near the top. */
 @media(max-width:600px){.owner-photo-grid.tour-photos{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.owner-photo-grid.tour-photos img{height:150px!important;max-height:none;object-fit:cover}}
+
+/* Owner Charyn photos: keep the programme readable and reveal the full album on request. */
+.owner-charyn-photos{clear:both;margin:24px 0}.owner-charyn-photos h2{font-size:20px;line-height:1.3}.owner-charyn-photos summary{cursor:pointer;color:#74440c;font-weight:bold;padding:10px 0}.owner-charyn-photos summary:focus-visible{outline:2px solid #74440c;outline-offset:3px}
