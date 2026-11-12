@@ -20,7 +20,7 @@ from datetime import date
 SRC, OUT = sys.argv[1], sys.argv[2]
 BASE = '/almaty-travel-review'
 HOST = 'https://www.almaty-travel.kz'
-BUILD_VERSION = date.today().strftime('%Y%m%d') + 'e'
+BUILD_VERSION = date.today().strftime('%Y%m%d') + 'f'
 RECAPTCHA_SITE_KEY = '6LdnN08sAAAAACbRJvizxAs1wwfjlXkNb6WNS0o7'  # public key, same as the old site
 SKIP = {'.git', '.github', 'README.md', 'demo.css', 'demo.js', 'tools', 'robots.txt', '.nojekyll'}
 TEXT_EXT = ('.html', '.css', '.js', '.xml', '.txt', '.json', '.svg', '.webmanifest')
@@ -225,6 +225,17 @@ def main():
         for r in (rel, 'summer/' + rel):
             if r in page_map:
                 page_map[r] = set_meta(page_map[r], title, desc)
+    import seo_patches
+    page_map = seo_patches.apply(page_map, set_meta)
+    for rel in seo_patches.DROP:
+        for r in (rel, 'summer/' + rel):
+            p = os.path.join(OUT, r)
+            if os.path.isfile(p):
+                os.remove(p)
+                d = os.path.dirname(p)
+                while d != OUT and not os.listdir(d):
+                    os.rmdir(d)
+                    d = os.path.dirname(d)
     pages = dedupe_descriptions(sorted(page_map.items()))
     for rel, s in pages:
         with open(os.path.join(OUT, rel), 'w', encoding='utf-8', newline='') as fh:
@@ -258,7 +269,8 @@ def write_extras(pages):
     shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'htaccess.txt'), os.path.join(OUT, '.htaccess'))
     shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lead.php'), os.path.join(OUT, 'lead.php'))
     here = os.path.dirname(os.path.abspath(__file__))
-    for src, dst in (('enquiry-status.js', 'assets/almaty-enquiry.js'), ('enquiry-status.css', 'assets/almaty-responsive.css')):
+    for src, dst in (('enquiry-status.js', 'assets/almaty-enquiry.js'), ('enquiry-status.css', 'assets/almaty-responsive.css'),
+                     ('events.js', 'assets/almaty-interface.js')):
         with open(os.path.join(here, src), encoding='utf-8') as a, open(os.path.join(OUT, dst), 'a', encoding='utf-8') as b:
             b.write('\n' + a.read())
     shutil.copy(os.path.join(here, 'llms.txt'), os.path.join(OUT, 'llms.txt'))

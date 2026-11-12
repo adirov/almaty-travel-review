@@ -17,6 +17,9 @@ RewriteRule ^(.*)$ https://www.almaty-travel.kz/$1 [R=301,L,NE]
 # Pages removed from the new site -> closest live page
 RewriteRule ^(ru|en)/pages/(21|354|378)\.html$ /$1/tours/ [R=301,L]
 RewriteRule ^(ru|en)/pages/320\.html$ /$1/pages/147.html [R=301,L]
+# One page for yurt stays (12.11.2026): /stay/yurts/ and pages/651 were copies of pages/47
+RewriteRule ^(summer/)?(ru|en)/stay/yurts/?$ /$1$2/pages/47.html [R=301,L]
+RewriteRule ^(summer/)?(ru|en)/pages/651\.html$ /$1$2/pages/47.html [R=301,L]
 RewriteRule ^(ru|en)/tours/(399|806)/?$ /$1/mountainstours/ [R=301,L]
 RewriteRule ^ru/rev/?$ / [R=301,L]
 RewriteRule ^en/rev/?$ /en/ [R=301,L]
