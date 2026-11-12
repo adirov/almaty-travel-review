@@ -37,7 +37,7 @@ RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
 <FilesMatch "(?i)\.(zip|tar|tgz|gz|rar|7z|sql|bak)$">
     Require all denied
 </FilesMatch>
-<FilesMatch "^(tttt\.txt|error_log)$">
+<FilesMatch "^(tttt\.txt|error_log|lead-config\.php)$">
     Require all denied
 </FilesMatch>
 
