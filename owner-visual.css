@@ -1,0 +1,82 @@
+/* Owner feedback, 3 November: original imagery, quiet type and continuous surfaces. */
+:root{--travel-blue:#165c7a;--travel-ink:#28454e;--travel-mist:#edf6f8;
+ /* One line-icon set (1.8-2px stroke, round caps) shared by CTA and lists, drawn in currentColor via mask. */
+ --icon-chat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z'/%3E%3C/svg%3E");
+ --icon-chevron:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E")}
+.owner-home h1{font-family:Georgia,'Times New Roman',serif;font-size:24px;font-weight:normal;line-height:1.25;text-align:center;color:var(--travel-ink);margin:8px 0 18px}
+.owner-home h1 em,.owner-home h1 strong{font-style:normal;font-weight:normal}
+.owner-home .home-visual{margin:0 0 22px}
+.home-visual iframe{display:block;width:100%;height:auto;aspect-ratio:460/259}
+.home-video{display:block;position:relative;background:#244d60;aspect-ratio:460/259;overflow:hidden;color:#fff;text-decoration:none}
+.home-video img{display:block;width:100%;height:100%!important;object-fit:cover;opacity:.85}
+.home-video span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;text-shadow:0 1px 6px #000;font:16px/1.4 Arial,sans-serif;background:linear-gradient(transparent,#0002)}
+.home-video b svg{display:block;flex:none}.home-video b{display:inline-flex;align-items:center;justify-content:center;width:54px;height:40px;border-radius:10px;background:#bf2823;color:#fff;font:20px/1 Arial,sans-serif}
+.home-visual .home-photo-link{display:block;position:relative;margin-top:8px}
+.home-visual .home-photo-link img{display:block;width:100%;height:auto}
+.home-photo-caption{display:block;text-align:center;padding:10px 6px;font:italic 15px/1.4 Georgia,serif;color:var(--travel-blue)}
+.home-shortcuts{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px;margin:0 0 14px;font:14px/1.5 Arial,sans-serif}
+.home-shortcuts a{display:inline-flex;align-items:center;min-height:44px;color:var(--travel-blue);text-underline-offset:4px}
+.home-reviews{margin:18px 0 26px;padding:20px 16px;background:linear-gradient(180deg,#fff,var(--travel-mist),#fff);text-align:center;color:var(--travel-ink)}
+.main_container .home-reviews h2{font:normal 23px/1.3 Georgia,serif!important;margin:0 0 14px!important;color:var(--travel-ink)}
+.home-reviews .review-excerpts{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left;margin:16px 0}
+.home-reviews blockquote{margin:0;padding:0 0 0 12px;border-left:2px solid #a4c8b5;font:italic 14px/1.6 Georgia,serif}
+.home-reviews cite{display:block;margin-top:8px;font:12px/1.5 Arial,sans-serif;color:#526c74}
+.home-reviews small{display:block;color:#526c74;font:12px/1.5 Arial,sans-serif;margin:10px 0}
+.home-reviews>a,.reviews-card .reviews-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px!important;box-sizing:border-box;border:1px solid #9abfca;border-radius:5px;background:linear-gradient(#fff,#e0f0f4);color:#165c7a!important;font:14px/1.5 Arial,sans-serif;text-decoration:none}
+.reviews-card{background:linear-gradient(#fff,#f0f7f8);border:1px solid #d3e3e6;border-radius:6px;padding:14px 10px;text-align:center}
+.reviews-card .reviews-header{justify-content:center;margin-bottom:10px}
+.reviews-title-text{color:var(--travel-blue)}
+.owner-home .almaty-route-row{grid-template-columns:56px minmax(0,1fr);border:0;border-bottom:1px solid #deeaed;padding:10px 0;gap:14px}
+.owner-home .almaty-route-row dt{color:#48735a;font:italic 16px/1.5 Georgia,serif}
+.owner-home .almaty-route-row a{color:var(--travel-blue);text-decoration:none;font-size:14px;line-height:1.5}
+.owner-home .almaty-route-row a:hover{text-decoration:underline}
+.owner-home .almaty-route-note{font-size:12px;line-height:1.65;color:#597078;margin-top:12px}
+.owner-home .almaty-seo-block{padding:20px 0;background:linear-gradient(#fff,#f2f8f6 45%,#fff)}
+.owner-home .almaty-seo-block h2{font:normal 23px/1.3 Georgia,serif;text-align:center;color:var(--travel-ink)}
+a,button{-webkit-tap-highlight-color:#cee4de}
+a:focus-visible,button:focus-visible{outline:2px solid #165c7a;outline-offset:4px}
+@media(min-width:1001px){#footer{height:auto;min-height:240px}.owner-footer-contact{margin:44px 0 0;padding:10px 16px}}
+@media(max-width:1000px){
+ body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.65;color:#2d4249}
+ #header{padding-top:calc(44px + min(35.5vw,171px) - 10px);padding-bottom:4px;background:linear-gradient(180deg,transparent 50%,#f1f8f8 86%,#fff)}
+ #header:before{height:calc(min(35.5vw,171px) + 20px);mask-image:linear-gradient(#000 72%,transparent 100%);-webkit-mask-image:linear-gradient(#000 72%,transparent 100%)}
+ #langs{background:linear-gradient(#f1f8fb,#d7ecf4);border:0}
+ #clocks{position:relative;gap:0;padding:8px 0 2px}
+ #top_phone,#top_phone1,#top_phone2{font:normal 14px/1.55 Arial,Helvetica,sans-serif;color:#526c74}
+ #top_phone a,#top_phone1 a,#top_phone2 a{color:#165c7a;font-weight:600}
+ #top_phone a{font-size:18px}
+ #top_phone1 a,#top_phone2 a{display:inline-flex;align-items:center;min-height:36px}
+ #site_title{max-width:420px;margin:9px auto 0;padding:0 24px;font:italic 14px/1.55 Georgia,'Times New Roman',serif;text-transform:none;color:#566f75;font-weight:normal}
+ #summerwinter{margin:8px 16px 0;font:normal 12px/1.5 Arial,sans-serif}
+ #summerwinter a{display:inline-flex;align-items:center;min-height:44px}
+ #middle{background:linear-gradient(#fff,#f1f8f5 70px,#fff 170px)}
+ #mobile-menu-toggle{align-self:center;width:auto;min-width:132px;min-height:44px;margin:2px 16px 10px;padding:8px 22px;border:1px solid #a8c9c7;border-radius:22px;background:linear-gradient(#fff,#e1eeea);color:#245e66;font:normal 16px/1.4 Georgia,serif;box-shadow:0 3px 12px #456c6410}
+ #mobile-menu-toggle[aria-expanded=true]{background:#dceee5}
+ #left_menu{padding:8px 14px;background:linear-gradient(#f2f8f4,#fff);border-radius:8px}
+ #left_menu a{font:normal 13px/1.45 Arial,sans-serif;color:#24617a}
+ #top_menu{gap:0;width:calc(100% - 24px);max-width:460px;margin:0 auto 18px;padding:10px 0 14px;background-color:transparent;background-image:var(--original-header-image);background-size:360% auto;background-position:center bottom;background-repeat:no-repeat;border-radius:0;mask-image:linear-gradient(transparent,#000 12%,#000 84%,transparent);-webkit-mask-image:linear-gradient(transparent,#000 12%,#000 84%,transparent)}
+ #top_menu1,#top_menu2,#top_menu3{min-height:44px;padding:0 4px;border:0;border-radius:0;background:transparent;font:normal 13px/1.3 Georgia,'Times New Roman',serif;text-transform:none}
+ #top_menu3{border:0}
+ #top_menu a{font:inherit;color:#214f68;min-height:44px}
+ .main_container{padding:0 18px;background-image:none}
+ .main_container h1{font:normal clamp(19px,5.3vw,23px)/1.3 Georgia,'Times New Roman',serif;color:var(--travel-ink);text-align:center;text-wrap:balance;margin:6px 0 20px}
+ .main_container h1 em,.main_container h1 strong{font-style:normal;font-weight:normal}
+ .main_container h2,.main_container h3,.main_container h4{color:var(--travel-ink)}
+ .owner-home .main_container .almaty-seo-block h2{font:normal 22px/1.35 Georgia,serif!important;margin:0 0 14px!important}
+ .owner-home .main_container .almaty-seo-block{font-size:15px;margin:22px 0;padding:20px 0}
+ .owner-home .almaty-route-row{grid-template-columns:52px minmax(0,1fr);padding:0;gap:12px}
+ .owner-home .almaty-route-row dt{padding:12px 0;font-size:16px}
+ .owner-home .almaty-route-row a{font-size:15px;padding:12px 0}
+ .owner-home .main_container .almaty-route-note{font-size:12px!important;line-height:1.65!important}
+ .home-visual .home-photo-link{mask-image:linear-gradient(#000 96%,transparent);-webkit-mask-image:linear-gradient(#000 96%,transparent)}
+ .main_container .home-reviews h2{font:normal 22px/1.3 Georgia,serif!important}
+ .home-reviews .review-excerpts{grid-template-columns:1fr;gap:18px}
+ #left_banner{margin:16px 18px}
+ .owner-banner{border:0;background:linear-gradient(#edf6f4,#fff);color:#245d66!important;border-radius:8px}
+ .owner-banner img{height:auto!important;aspect-ratio:1.6;object-fit:cover;mask-image:linear-gradient(#000 82%,transparent);-webkit-mask-image:linear-gradient(#000 82%,transparent)}
+ .owner-banner strong{font:normal 17px/1.4 Georgia,serif}
+ .reviews-card{padding:16px 12px!important}
+ .photo_gal_head img{max-width:150px!important}
+ .home-shortcuts{font-size:13px;gap:0 16px;margin-bottom:8px}
+}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}a,button{transition:color .18s ease,background-color .18s ease}}

@@ -1,0 +1,64 @@
+# almaty-travel.kz — static site (built from adirov/almaty-travel-review, tools/build_live.py)
+# Old CMS PHP files stay on the server for the order mail class and Instagram (ajax.php).
+Options -Indexes
+DirectoryIndex index.html index.php
+AddDefaultCharset UTF-8
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# One canonical address: https://www.almaty-travel.kz
+RewriteCond %{HTTP_HOST} ^(www\.)?kaztour\.com\.kz$ [NC]
+RewriteRule ^(.*)$ https://www.almaty-travel.kz/ [R=301,L]
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^almaty-travel\.kz$ [NC]
+RewriteRule ^(.*)$ https://www.almaty-travel.kz/$1 [R=301,L,NE]
+
+# Pages removed from the new site -> closest live page
+RewriteRule ^(ru|en)/pages/(21|354|378)\.html$ /$1/tours/ [R=301,L]
+RewriteRule ^(ru|en)/pages/320\.html$ /$1/pages/147.html [R=301,L]
+RewriteRule ^(ru|en)/tours/(399|806)/?$ /$1/mountainstours/ [R=301,L]
+RewriteRule ^ru/rev/?$ / [R=301,L]
+RewriteRule ^en/rev/?$ /en/ [R=301,L]
+RewriteRule ^photo/604/?$ /ru/photo/604/ [R=301,L]
+RewriteRule ^(ru|en)/swicher/?$ /summer/$1/ [R=302,L]
+RewriteRule ^(ru|en)/articles/ /$1/guide/ [R=301,L]
+RewriteRule ^kz/?(.*)$ /ru/ [R=301,L]
+# Old CMS entry points must not show the old design any more
+RewriteRule ^order\.php$ /ru/order/ [R=301,L]
+RewriteRule ^(index|page|tours|photo|photos|mountainstours|map|articles|rev|guest_book|swicher)\.php$ / [R=301,L]
+
+# Directory URLs without a trailing slash
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
+
+# Backups and dumps are never served
+<FilesMatch "(?i)\.(zip|tar|tgz|gz|rar|7z|sql|bak)$">
+    Require all denied
+</FilesMatch>
+<FilesMatch "^(tttt\.txt|error_log)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
+</IfModule>
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json image/svg+xml text/xml application/xml text/plain
+</IfModule>
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/png "access plus 30 days"
+    ExpiresByType image/webp "access plus 30 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType font/woff2 "access plus 90 days"
+</IfModule>
