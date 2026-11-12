@@ -9,7 +9,6 @@ Disallow: /temp/
 Disallow: /sql/
 Disallow: /ext/
 Disallow: /kaztour.com.kz/
-Disallow: /summer/
 Disallow: /lead.php
 Disallow: /ajax.php
 
