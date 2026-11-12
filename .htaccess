@@ -22,7 +22,7 @@ RewriteRule ^ru/rev/?$ / [R=301,L]
 RewriteRule ^en/rev/?$ /en/ [R=301,L]
 RewriteRule ^photo/604/?$ /ru/photo/604/ [R=301,L]
 RewriteRule ^(summer/)?ru/photo/(432|463)/?$ /ru/photo/ [R=301,L]
-RewriteRule ^(ru|en)/swicher/?$ /summer/$1/ [R=302,L]
+RewriteRule ^(ru|en)/swicher/?$ /summer/$1/ [R=301,L]
 RewriteRule ^(ru|en)/articles/ /$1/guide/ [R=301,L]
 RewriteRule ^kz/?(.*)$ /ru/ [R=301,L]
 # Old CMS entry points must not show the old design any more
