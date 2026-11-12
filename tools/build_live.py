@@ -275,6 +275,8 @@ def write_extras(pages):
             b.write('\n' + a.read())
     shutil.copy(os.path.join(here, 'llms.txt'), os.path.join(OUT, 'llms.txt'))
     make_404(pages)
+    import optimize_images
+    optimize_images.run(OUT)
     print('pages', len(pages), 'sitemap urls', len(urls))
 
 
