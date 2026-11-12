@@ -20,6 +20,7 @@ from datetime import date
 SRC, OUT = sys.argv[1], sys.argv[2]
 BASE = '/almaty-travel-review'
 HOST = 'https://www.almaty-travel.kz'
+BUILD_VERSION = date.today().strftime('%Y%m%d') + 'b'
 RECAPTCHA_SITE_KEY = '6LdnN08sAAAAACbRJvizxAs1wwfjlXkNb6WNS0o7'  # public key, same as the old site
 SKIP = {'.git', '.github', 'README.md', 'demo.css', 'demo.js', 'tools', 'robots.txt', '.nojekyll'}
 TEXT_EXT = ('.html', '.css', '.js', '.xml', '.txt', '.json', '.svg', '.webmanifest')
@@ -98,6 +99,8 @@ def transform_html(s, rel):
     # footer copyright
     s = re.sub(r'(\d{4}) © KAZTOUR\.com', '2011–2026 © Kazakhstan Travel', s)
     s = fix_form(s, lang)
+    # cache-busting for our own CSS/JS (the server caches them for 7 days)
+    s = re.sub(r'((?:href|src)="/(?:assets/)?[\w./-]+\.(?:css|js))(?:\?v=[\w-]+)?"', lambda m: m.group(1) + '?v=' + BUILD_VERSION + '"', s)
     return s
 
 
