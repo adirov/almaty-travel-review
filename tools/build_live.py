@@ -20,7 +20,7 @@ from datetime import date
 SRC, OUT = sys.argv[1], sys.argv[2]
 BASE = '/almaty-travel-review'
 HOST = 'https://www.almaty-travel.kz'
-BUILD_VERSION = date.today().strftime('%Y%m%d') + 'c'
+BUILD_VERSION = date.today().strftime('%Y%m%d') + 'd'
 RECAPTCHA_SITE_KEY = '6LdnN08sAAAAACbRJvizxAs1wwfjlXkNb6WNS0o7'  # public key, same as the old site
 SKIP = {'.git', '.github', 'README.md', 'demo.css', 'demo.js', 'tools', 'robots.txt', '.nojekyll'}
 TEXT_EXT = ('.html', '.css', '.js', '.xml', '.txt', '.json', '.svg', '.webmanifest')
@@ -81,7 +81,11 @@ def fix_form(s, lang):
 
 def transform_html(s, rel):
     lang = lang_of(rel)
+    # review-site absolute URLs (guide pages) -> production origin
+    s = s.replace('https://adirov.github.io' + BASE + '/#company', HOST + '/#organization')
+    s = s.replace('https://adirov.github.io' + BASE, HOST)
     s = s.replace(BASE + '/', '/').replace('"' + BASE + '"', '"/"')
+    s = s.replace('<em><strong>Добро пожаловать на наш сайт</strong></em></h1>', '<em><strong>Частные туры и экскурсии из Алматы</strong></em></h1>')
     s = re.sub(r'<meta name="robots" content="noindex[^"]*">', '', s)
     s = re.sub(r'<link rel="stylesheet" href="/demo\.css">', '', s)
     s = re.sub(r'<aside class="demo-notice"[^>]*>.*?</aside>', '', s, flags=re.S)
@@ -243,6 +247,8 @@ def make_404(pages):
     s = dict(pages)['ru/map/index.html']
     s = re.sub(r'<title>[^<]*</title>', '<title>Страница не найдена | Kazakhstan Travel</title>', s)
     s = re.sub(r'<link rel="(canonical|alternate)"[^>]*>', '', s)
+    s = re.sub(r'<script type="application/ld\+json">.*?</script>', '', s, flags=re.S)
+    s = re.sub(r'<meta (property|name)="(og|twitter):[^"]*" content="[^"]*">', '', s)
     s = s.replace('</head>', '<meta name="robots" content="noindex"></head>', 1)
     body = ('<div class="main_container"><h1>Страница не найдена / Page not found</h1>'
             '<p>Такой страницы нет или она переехала. Начните с <a href="/">главной страницы</a>, '
