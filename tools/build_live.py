@@ -130,6 +130,10 @@ def dedupe_descriptions(pages):
     for i, (rel, s) in enumerate(pages):
         if rel.startswith('summer/'):
             continue
+        url = '/' + (rel[:-len('index.html')] if rel.endswith('index.html') else rel)
+        c = re.search(r'<link rel="canonical" href="([^"]+)"', s)
+        if not c or c.group(1) != HOST + url:
+            continue  # duplicates of a canonical page share its description on purpose
         m = re.search(r'<meta name="description" content="([^"]*)"', s)
         if m:
             groups.setdefault(m.group(1), []).append(i)
