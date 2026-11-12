@@ -1,0 +1,4 @@
+.order-status{padding:12px 14px;margin:0 0 18px;border:1px solid #9cc3a6;background:#f1faf3;color:#1f5130;font:15px/1.5 Arial,sans-serif;overflow-wrap:anywhere}
+.order-status[data-state="error"]{border-color:#d29a9a;background:#fff4f4;color:#8a2727}
+.g-recaptcha{min-height:78px}
+@media (max-width:360px){.g-recaptcha{transform:scale(.88);transform-origin:0 0}}
