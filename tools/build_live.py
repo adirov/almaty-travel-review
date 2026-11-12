@@ -20,7 +20,7 @@ from datetime import date
 SRC, OUT = sys.argv[1], sys.argv[2]
 BASE = '/almaty-travel-review'
 HOST = 'https://www.almaty-travel.kz'
-BUILD_VERSION = date.today().strftime('%Y%m%d') + 'd'
+BUILD_VERSION = date.today().strftime('%Y%m%d') + 'e'
 RECAPTCHA_SITE_KEY = '6LdnN08sAAAAACbRJvizxAs1wwfjlXkNb6WNS0o7'  # public key, same as the old site
 SKIP = {'.git', '.github', 'README.md', 'demo.css', 'demo.js', 'tools', 'robots.txt', '.nojekyll'}
 TEXT_EXT = ('.html', '.css', '.js', '.xml', '.txt', '.json', '.svg', '.webmanifest')
@@ -121,6 +121,25 @@ TITLE_FIX = {
 }
 
 
+SCHOOL_BLOCK = {
+    'ru': ('<aside class="school-link" aria-label="Школа сноуборда в Алматы"><p class="school-link__title">Хотите попробовать сноуборд?</p>'
+           '<p>У нас есть своя школа: <strong>Almaty Snowboard School</strong>. Там индивидуальные уроки, групповые курсы, '
+           'детские тренировки и выезды во фрирайд в горах Алматы.</p>'
+           '<p><a class="school-link__btn" href="https://snow-school.kz/ru/">Перейти на сайт школы</a></p></aside>'),
+    'en': ('<aside class="school-link" aria-label="Snowboard school in Almaty"><p class="school-link__title">Want to try snowboarding?</p>'
+           '<p>We also run <strong>Almaty Snowboard School</strong>: private lessons, group courses, kids training '
+           'and off-piste guiding in the Almaty mountains.</p>'
+           '<p><a class="school-link__btn" href="https://snow-school.kz/en/">Visit the school website</a></p></aside>'),
+}
+
+
+def add_school_link(s, lang):
+    m = re.search(r'(<h1>[^<]*</h1><p>.*?</p>)', s, re.S)
+    if not m or 'school-link' in s:
+        return s
+    return s[:m.end()] + SCHOOL_BLOCK[lang] + s[m.end():]
+
+
 def set_meta(s, title=None, desc=None):
     if title:
         s = re.sub(r'<title>[^<]*</title>', '<title>%s</title>' % html.escape(title, quote=False), s, count=1)
@@ -198,6 +217,10 @@ def main():
     for rel in REMOVED:
         shutil.rmtree(os.path.join(OUT, rel), ignore_errors=True)
         page_map.pop(rel + 'index.html', None)
+    for rel in ('ru/winter/ski-lessons/index.html', 'en/winter/ski-lessons/index.html'):
+        for r in (rel, 'summer/' + rel):
+            if r in page_map:
+                page_map[r] = add_school_link(page_map[r], rel[:2])
     for rel, (title, desc) in TITLE_FIX.items():
         for r in (rel, 'summer/' + rel):
             if r in page_map:

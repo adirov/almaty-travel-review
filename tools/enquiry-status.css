@@ -8,3 +8,9 @@
 @media print{.wa-float{display:none}}
 #ui-datepicker-div:empty,#ui-datepicker-div.ui-helper-hidden-accessible{display:none}
 .order-status:not([hidden]){display:block!important}
+.school-link{margin:18px 0 22px;padding:16px 18px;border:1px solid #cfe3ea;border-left:4px solid #2a9fb8;border-radius:6px;background:#f3f9fb;color:#24414f}
+.school-link p{margin:0 0 8px!important}
+.school-link .school-link__title{font-weight:bold;font-size:1.08em;color:#1b4f63}
+.school-link p:last-child{margin-bottom:0!important}
+.school-link__btn{display:inline-block;padding:9px 16px;border-radius:4px;background:#2a9fb8;color:#fff!important;text-decoration:none!important;font-weight:bold}
+.school-link__btn:hover,.school-link__btn:focus-visible{background:#1f7f95}
