@@ -113,3 +113,4 @@
 .wa-float:hover,.wa-float:focus-visible{transform:scale(1.07)}
 .wa-float:focus-visible{outline:3px solid #0b5ed7;outline-offset:3px}
 @media print{.wa-float{display:none}}
+#ui-datepicker-div:empty,#ui-datepicker-div.ui-helper-hidden-accessible{display:none}
