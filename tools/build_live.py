@@ -20,7 +20,7 @@ from datetime import date
 SRC, OUT = sys.argv[1], sys.argv[2]
 BASE = '/almaty-travel-review'
 HOST = 'https://www.almaty-travel.kz'
-BUILD_VERSION = date.today().strftime('%Y%m%d') + 'b'
+BUILD_VERSION = date.today().strftime('%Y%m%d') + 'c'
 RECAPTCHA_SITE_KEY = '6LdnN08sAAAAACbRJvizxAs1wwfjlXkNb6WNS0o7'  # public key, same as the old site
 SKIP = {'.git', '.github', 'README.md', 'demo.css', 'demo.js', 'tools', 'robots.txt', '.nojekyll'}
 TEXT_EXT = ('.html', '.css', '.js', '.xml', '.txt', '.json', '.svg', '.webmanifest')
@@ -70,7 +70,7 @@ def fix_form(s, lang):
     f = f.replace('<textarea id="comments"', '<textarea name="comments" id="comments"')
     f = re.sub(r'<label><input type="checkbox" id="stage-captcha">[^<]*</label>',
                '<div class="g-recaptcha" data-sitekey="%s" data-hl="%s"></div>' % (RECAPTCHA_SITE_KEY, lang), f)
-    status = '<p id="order-status" class="order-status" role="status" aria-live="polite" hidden></p>'
+    status = '<div id="order-status" class="order-status" role="status" aria-live="polite" hidden></div>'
     f = f.replace('<form id="order_form" action="/lead.php" method="post">',
                   '<form id="order_form" action="/lead.php" method="post">' + status, 1)
     s = s[:m.start()] + f + s[m.end():]
