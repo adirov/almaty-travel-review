@@ -4,7 +4,7 @@
   body { background-image: none; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.5; }
   #wrapper {
     width: 100%; max-width: 100%; margin: 0;
-    background-image: var(--original-header-image, url("/assets/images/header_bg2.jpg"));
+    background-image: var(--original-header-image, url("/assets/images/header_bg2.webp"));
     background-repeat: no-repeat; background-position: center top;
     background-size: min(182.556%, 880px) auto;
   }
