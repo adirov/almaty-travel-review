@@ -22,7 +22,7 @@ BASE = '/almaty-travel-review'
 HOST = 'https://www.almaty-travel.kz'
 BUILD_VERSION = date.today().strftime('%Y%m%d') + 'f'
 RECAPTCHA_SITE_KEY = '6LdnN08sAAAAACbRJvizxAs1wwfjlXkNb6WNS0o7'  # public key, same as the old site
-SKIP = {'.git', '.github', '.gitignore', 'README.md', 'demo.css', 'demo.js', 'tools', 'robots.txt', '.nojekyll'}
+SKIP = {'.git', '.github', '.gitignore', 'README.md', 'demo.css', 'demo.js', 'tools', 'articles', 'robots.txt', '.nojekyll'}
 TEXT_EXT = ('.html', '.css', '.js', '.xml', '.txt', '.json', '.svg', '.webmanifest')
 
 OWNER_GTM = """<!-- Almaty Travel: owner-managed analytics -->
@@ -125,11 +125,11 @@ TITLE_FIX = {
 
 SCHOOL_BLOCK = {
     'ru': ('<aside class="school-link" aria-label="Школа сноуборда в Алматы"><p class="school-link__title">Хотите попробовать сноуборд?</p>'
-           '<p>У нас есть своя школа: <strong>Almaty Snowboard School</strong>. Там индивидуальные уроки, групповые курсы, '
+           '<p>У нас есть своя школа: <strong>Almaty Snowboard School</strong>. Там индивидуальные и групповые уроки, '
            'детские тренировки и выезды во фрирайд в горах Алматы.</p>'
            '<p><a class="school-link__btn" href="https://snow-school.kz/ru/">Перейти на сайт школы</a></p></aside>'),
     'en': ('<aside class="school-link" aria-label="Snowboard school in Almaty"><p class="school-link__title">Want to try snowboarding?</p>'
-           '<p>We also run <strong>Almaty Snowboard School</strong>: private lessons, group courses, kids training '
+           '<p>We also run <strong>Almaty Snowboard School</strong>: private and group lessons, kids training '
            'and off-piste guiding in the Almaty mountains.</p>'
            '<p><a class="school-link__btn" href="https://snow-school.kz/en/">Visit the school website</a></p></aside>'),
 }
@@ -229,6 +229,15 @@ def main():
                 page_map[r] = set_meta(page_map[r], title, desc)
     import seo_patches
     page_map = seo_patches.apply(page_map, set_meta)
+    import site_patches
+    page_map = site_patches.apply(page_map, set_meta)
+    # articles: only status=published reach the public site (drafts live on the review site only)
+    import articles
+    for rel in articles.apply(page_map, articles.load(SRC), HOST, '', include_drafts=False):
+        p = os.path.join(OUT, rel)
+        if os.path.isfile(p):
+            os.remove(p)
+            os.rmdir(os.path.dirname(p))
     for rel in seo_patches.DROP:
         for r in (rel, 'summer/' + rel):
             p = os.path.join(OUT, r)
