@@ -111,7 +111,9 @@ def patch(rel, s, set_meta):
 
 
 def apply(page_map, set_meta):
-    return {rel: patch(rel, s, set_meta) for rel, s in page_map.items()}
+    import offer
+    out = {rel: patch(rel, s, set_meta) for rel, s in page_map.items()}
+    return offer.apply(out, _lang, set_meta)
 
 
 def _set_meta(s, title=None, desc=None):
@@ -128,6 +130,8 @@ def _set_meta(s, title=None, desc=None):
 
 if __name__ == '__main__':
     repo = sys.argv[1]
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import offer
     n = 0
     for root, dirs, files in os.walk(repo):
         dirs[:] = [d for d in dirs if d not in ('.git', 'tools', 'articles')]
@@ -138,9 +142,19 @@ if __name__ == '__main__':
             rel = os.path.relpath(p, repo)
             with open(p, encoding='utf-8', newline='') as fh:
                 s = fh.read()
-            t = patch(rel, s, _set_meta)
+            t = offer.footer_link(patch(rel, s, _set_meta), _lang(rel))
             if t != s:
                 with open(p, 'w', encoding='utf-8', newline='') as fh:
                     fh.write(t)
                 n += 1
+    for lang in ('en', 'ru'):
+        with open(os.path.join(repo, lang, 'pages', '15.html'), encoding='utf-8', newline='') as fh:
+            page = offer.make_page(fh.read(), lang, _set_meta)
+        dst = os.path.join(repo, lang, 'offer', 'index.html')
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        old = open(dst, encoding='utf-8', newline='').read() if os.path.exists(dst) else None
+        if old != page:
+            with open(dst, 'w', encoding='utf-8', newline='') as fh:
+                fh.write(page)
+            n += 1
     print('changed files:', n)
