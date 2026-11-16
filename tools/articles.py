@@ -240,11 +240,12 @@ def apply(pages, articles, host, base, include_drafts):
                 return '<script type="application/ld+json">%s</script>' % json.dumps(data, ensure_ascii=False)
             s = re.sub(r'<script type="application/ld\+json">(.*?)</script>', part, s, count=1, flags=re.S)
             pages[idx] = s
-        home = '%s/index.html' % lang
-        if home in pages and arts:
-            pages[home] = put_block(pages[home], cards(arts, base, lang, home=True), r'</section>(?=</div>\s*<div id="center_footer">)')
-        elif home in pages and START in pages[home]:
-            pages[home] = re.sub(re.escape(START) + r'.*?' + re.escape(END), '', pages[home], flags=re.S)
+        # RU home is also copied to the domain root in the live build ('index.html')
+        for home in ['%s/index.html' % lang] + (['index.html'] if lang == 'ru' else []):
+            if home in pages and arts:
+                pages[home] = put_block(pages[home], cards(arts, base, lang, home=True), r'</section>(?=</div>\s*<div id="center_footer">)')
+            elif home in pages and START in pages[home]:
+                pages[home] = re.sub(re.escape(START) + r'.*?' + re.escape(END), '', pages[home], flags=re.S)
     return removed
 
 
