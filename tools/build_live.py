@@ -238,6 +238,10 @@ def main():
         if os.path.isfile(p):
             os.remove(p)
             os.rmdir(os.path.dirname(p))
+    # .com SEO port (16.11.2026): titles/descriptions/H1, FAQ blocks, guide wording, organisation schema.
+    # Runs after site_patches, which would otherwise reset the pages/26 title and description.
+    import com_seo_port
+    page_map = com_seo_port.apply(page_map)
     for rel in seo_patches.DROP:
         for r in (rel, 'summer/' + rel):
             p = os.path.join(OUT, r)
