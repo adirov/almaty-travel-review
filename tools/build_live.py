@@ -242,6 +242,9 @@ def main():
     # Runs after site_patches, which would otherwise reset the pages/26 title and description.
     import com_seo_port
     page_map = com_seo_port.apply(page_map)
+    # Second SEO pass (17.11.2026): x-default, related tours, EN wording, keywords, gallery pagination noindex.
+    import seo_round2
+    page_map = seo_round2.apply(page_map)
     for rel in seo_patches.DROP:
         for r in (rel, 'summer/' + rel):
             p = os.path.join(OUT, r)
@@ -262,7 +265,7 @@ def write_extras(pages):
     today = date.today().isoformat()
     urls = []
     for rel, s in pages:
-        if rel.startswith('summer/'):
+        if rel.startswith('summer/') or re.search(r'/photo/(?:\d+/)?p/\d+/', rel):
             continue
         url = '/' + rel[:-len('index.html')] if rel.endswith('index.html') else '/' + rel
         m = re.search(r'<link rel="canonical" href="([^"]+)"', s)
