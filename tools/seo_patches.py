@@ -22,11 +22,11 @@ MEALS = (
 # --- partner snowboard school (facts from https://snow-school.kz/, checked 12.11.2026)
 SCHOOL_BLOCK = {
     'ru': ('<aside class="school-link" aria-label="Школа сноуборда в Алматы"><p class="school-link__title">Хотите попробовать сноуборд?</p>'
-           '<p>Наша партнёрская школа <strong>Almaty Snowboard School</strong> проводит индивидуальные уроки, групповые курсы, '
+           '<p>Наша партнёрская школа <strong>Almaty Snowboard School</strong> проводит индивидуальные и групповые уроки, '
            'детские тренировки и катание вне трасс с гидом в горах Алматы.</p>'
            '<p><a class="school-link__btn" href="https://snow-school.kz/ru/">Перейти на сайт школы</a></p></aside>'),
     'en': ('<aside class="school-link" aria-label="Snowboard school in Almaty"><p class="school-link__title">Want to try snowboarding?</p>'
-           '<p>Our partner school <strong>Almaty Snowboard School</strong> offers private lessons, group courses, kids training '
+           '<p>Our partner school <strong>Almaty Snowboard School</strong> offers private and group lessons, kids training '
            'and off-piste guiding in the Almaty mountains.</p>'
            '<p><a class="school-link__btn" href="https://snow-school.kz/en/">Visit the school website</a></p></aside>'),
 }
@@ -34,34 +34,34 @@ SCHOOL_BLOCK = {
 SCHOOL_PAGE = {
     'ru': {
         'title': 'Almaty Snowboard School: уроки сноуборда | Kazakhstan Travel',
-        'desc': 'Партнёрская школа сноуборда в Алматы: индивидуальные уроки, групповые курсы, детские тренировки от 5 лет '
+        'desc': 'Партнёрская школа сноуборда в Алматы: индивидуальные уроки от 50 000 ₸, групповые — 25 000 ₸ с человека, детские тренировки от 5 лет '
                 'и катание вне трасс с гидом. Запись на snow-school.kz.',
         'intro': ('<p>Almaty Snowboard School — партнёрская школа сноуборда в горах Алматы. Запись, стоимость и даты занятий '
                   'подтверждает сама школа: на сайте <a href="https://snow-school.kz/ru/">snow-school.kz</a> или по телефону '
                   '<a href="tel:+77005259885">+7 700 525 9885</a> (Артур Ковалевский).</p>'
                   '<section class="owner-info" aria-label="Направления школы"><h2>Направления школы</h2><ul>'
-                  '<li><strong>Индивидуальные уроки</strong> — один на один с инструктором, 2 часа; для новичков и тех, кто уже катается.</li>'
-                  '<li><strong>Групповые курсы</strong> — 5 занятий по 2 часа; для новичков и продолжающих.</li>'
+                  '<li><strong>Индивидуальные уроки</strong> — один на один с инструктором: 2 часа — 50 000 ₸, полдня — от 65 000 ₸, день — 130 000 ₸.</li>'
+                  '<li><strong>Групповые уроки</strong> — 2 часа в группе от 2 до 5 человек, 25 000 ₸ с человека.</li>'
                   '<li><strong>Детские тренировки</strong> — от 5 лет, 1,5 часа, индивидуально или в группе.</li>'
                   '<li><strong>Катание вне трасс с гидом</strong> — полный день, для опытных райдеров.</li>'
-                  '</ul><p class="owner-info-note">Нужны трансфер в горы, проживание или экскурсия в свободный от катания день — '
+                  '</ul><p class="owner-info-note">Ски-пасс в стоимость урока не входит. Все цены — на <a href="https://snow-school.kz/ru/prices/">snow-school.kz/ru/prices</a>. Нужны трансфер в горы, проживание или экскурсия в свободный от катания день — '
                   'это организует Kazakhstan Travel.</p></section>'),
         'button': '<p><a class="school-link__btn" href="https://snow-school.kz/ru/">Перейти на сайт школы</a></p>',
         'cta': 'Трансфер, проживание или экскурсия в день без катания — напишите нам в WhatsApp.',
     },
     'en': {
         'title': 'Almaty Snowboard School: snowboard lessons | Kazakhstan Travel',
-        'desc': 'Our partner snowboard school in Almaty: private lessons, group courses, kids training from age 5 and '
+        'desc': 'Our partner snowboard school in Almaty: private lessons from 50,000 KZT, group lessons 25,000 KZT per person, kids training from age 5 and '
                 'off-piste guiding. Book on snow-school.kz.',
         'intro': ('<p>Almaty Snowboard School is our partner snowboard school in the Almaty mountains. The school confirms '
                   'bookings, prices and dates itself: on <a href="https://snow-school.kz/en/">snow-school.kz</a> or by phone '
                   '<a href="tel:+77005259885">+7 700 525 9885</a> (Artur Kovalevskiy).</p>'
                   '<section class="owner-info" aria-label="What the school offers"><h2>What the school offers</h2><ul>'
-                  '<li><strong>Private lessons</strong> — one-to-one with an instructor, 2 hours; for beginners and improvers.</li>'
-                  '<li><strong>Group courses</strong> — 5 sessions of 2 hours; for beginners and improvers.</li>'
+                  '<li><strong>Private lessons</strong> — one-to-one with an instructor: 2 hours 50,000 KZT, half day from 65,000 KZT, full day 130,000 KZT.</li>'
+                  '<li><strong>Group lessons</strong> — 2 hours in a group of 2 to 5, 25,000 KZT per person.</li>'
                   '<li><strong>Kids training</strong> — from age 5, 1.5 hours, private or in a group.</li>'
                   '<li><strong>Off-piste with a guide</strong> — a full day, for experienced riders.</li>'
-                  '</ul><p class="owner-info-note">Kazakhstan Travel can arrange your transfer to the mountains, accommodation '
+                  '</ul><p class="owner-info-note">The ski pass is not included. Full price list: <a href="https://snow-school.kz/en/prices/">snow-school.kz/en/prices</a>. Kazakhstan Travel can arrange your transfer to the mountains, accommodation '
                   'or a sightseeing trip on a day off the slopes.</p></section>'),
         'button': '<p><a class="school-link__btn" href="https://snow-school.kz/en/">Visit the school website</a></p>',
         'cta': 'Need a transfer, accommodation or a day trip between ride days? Message us on WhatsApp.',
