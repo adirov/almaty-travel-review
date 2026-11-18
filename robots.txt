@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /cms/
 Disallow: /admin/
+Disallow: /redaktor/
 Disallow: /base/
 Disallow: /block/
 Disallow: /cache/
