@@ -1,0 +1,383 @@
+# Admin panel (Sveltia CMS) for almaty-travel.kz. How-to: docs/CMS.md. Field labels are what the owner sees.
+# Saving commits to codex/demo; .github/workflows/cms.yml then writes the change into the HTML pages
+# (tools/cms.py) and rebuilds the live-site branch. The live server is updated only by a deploy.
+backend:
+  name: github
+  repo: adirov/almaty-travel-review
+  branch: codex/demo
+  commit_messages:
+    create: 'CMS: создано «{{slug}}» ({{collection}})'
+    update: 'CMS: изменено «{{slug}}» ({{collection}})'
+    delete: 'CMS: удалено «{{slug}}» ({{collection}})'
+    uploadMedia: 'CMS: загружено фото {{path}}'
+    deleteMedia: 'CMS: удалено фото {{path}}'
+app_title: Almaty Travel — админка
+site_url: https://adirov.github.io/almaty-travel-review/ru/
+media_folder: assets/images/cms
+public_folder: /assets/images/cms
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1600
+          height: 1600
+i18n:
+  structure: multiple_files
+  locales:
+  - en
+  - ru
+  default_locale: en
+slug:
+  encoding: ascii
+  clean_accents: true
+output:
+  omit_empty_optional_fields: true
+collections:
+- name: pages_ru
+  label: Туры и страницы (русский)
+  label_singular: Страница
+  folder: content/pages/ru
+  extension: md
+  format: yaml-frontmatter
+  create: false
+  delete: false
+  identifier_field: h1
+  summary: '{{fields.h1}} — {{fields.url}}'
+  sortable_fields:
+  - h1
+  - section
+  view_groups:
+    default: section
+    groups:
+    - name: section
+      label: Раздел
+      field: section
+  editor:
+    preview: false
+  description: Русская версия сайта. После «Сохранить» страница на проверочном сайте обновится через 2–3 минуты. На almaty-travel.kz
+    правки попадут после выкладки (деплоя).
+  fields:
+  - name: page
+    widget: hidden
+  - name: url
+    widget: hidden
+  - name: section
+    widget: hidden
+  - name: text_locked
+    widget: hidden
+  - name: title
+    label: 'SEO: заголовок во вкладке браузера и в Google'
+    widget: string
+    hint: До ~60 символов. Обычно «Название тура | Kazakhstan Travel».
+  - name: description
+    label: 'SEO: описание для Google'
+    widget: text
+    hint: До ~155 символов. Показывается в Google под заголовком.
+  - name: h1
+    label: Заголовок на странице
+    widget: string
+  - name: body
+    label: Текст страницы
+    widget: richtext
+    required: false
+    modes:
+    - rich_text
+    - raw
+    buttons:
+    - bold
+    - italic
+    - link
+    - heading-two
+    - heading-three
+    - bulleted-list
+    - numbered-list
+    - quote
+    editor_components: []
+    hint: Текст под заголовком. «Цитата» = выделенное вступление тура. Строка {{фото}} — место, где стоят «Фото в тексте».
+      Если поле пустое и страница старая (сложная вёрстка), текст правится только через код, а здесь — SEO и фото.
+  - name: photos
+    label: Фото в тексте
+    widget: list
+    required: false
+    collapsed: true
+    summary: '{{fields.alt}}'
+    hint: Сетка фото внутри текста (на месте строки {{фото}}, иначе в конце текста). Порядок меняется перетаскиванием.
+    fields:
+    - name: image
+      label: Фото
+      widget: image
+      choose_url: false
+    - name: alt
+      label: Подпись (для Google и незрячих)
+      widget: string
+      required: false
+      hint: Что на фото, 3–8 слов. Например «Озеро Кольсай осенью».
+  - name: galleries
+    label: Фотогалереи
+    widget: list
+    required: false
+    collapsed: true
+    summary: '{{fields.title}}'
+    hint: Блоки «Фото …» ниже текста. Удалите все фото из галереи, чтобы убрать её со страницы.
+    fields:
+    - name: id
+      widget: hidden
+    - name: title
+      label: Заголовок галереи
+      widget: string
+    - name: photos
+      label: Фото (видны сразу)
+      widget: list
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - name: image
+        label: Фото
+        widget: image
+        choose_url: false
+      - name: alt
+        label: Подпись (для Google и незрячих)
+        widget: string
+        required: false
+        hint: Что на фото, 3–8 слов. Например «Озеро Кольсай осенью».
+    - name: more_label
+      label: Надпись над скрытыми фото
+      widget: string
+      required: false
+      hint: Например «Ещё фото с наших поездок». Число фото добавится само.
+    - name: more
+      label: Ещё фото (открываются по клику)
+      widget: list
+      required: false
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - name: image
+        label: Фото
+        widget: image
+        choose_url: false
+      - name: alt
+        label: Подпись (для Google и незрячих)
+        widget: string
+        required: false
+        hint: Что на фото, 3–8 слов. Например «Озеро Кольсай осенью».
+- name: pages_en
+  label: Туры и страницы (English)
+  label_singular: Page
+  folder: content/pages/en
+  extension: md
+  format: yaml-frontmatter
+  create: false
+  delete: false
+  identifier_field: h1
+  summary: '{{fields.h1}} — {{fields.url}}'
+  sortable_fields:
+  - h1
+  - section
+  view_groups:
+    default: section
+    groups:
+    - name: section
+      label: Раздел
+      field: section
+  editor:
+    preview: false
+  description: Английская версия сайта. Поля те же, текст пишется по-английски.
+  fields:
+  - name: page
+    widget: hidden
+  - name: url
+    widget: hidden
+  - name: section
+    widget: hidden
+  - name: text_locked
+    widget: hidden
+  - name: title
+    label: 'SEO: заголовок во вкладке браузера и в Google'
+    widget: string
+    hint: До ~60 символов. Обычно «Название тура | Kazakhstan Travel».
+  - name: description
+    label: 'SEO: описание для Google'
+    widget: text
+    hint: До ~155 символов. Показывается в Google под заголовком.
+  - name: h1
+    label: Заголовок на странице
+    widget: string
+  - name: body
+    label: Текст страницы
+    widget: richtext
+    required: false
+    modes:
+    - rich_text
+    - raw
+    buttons:
+    - bold
+    - italic
+    - link
+    - heading-two
+    - heading-three
+    - bulleted-list
+    - numbered-list
+    - quote
+    editor_components: []
+    hint: Текст под заголовком. «Цитата» = выделенное вступление тура. Строка {{фото}} — место, где стоят «Фото в тексте».
+      Если поле пустое и страница старая (сложная вёрстка), текст правится только через код, а здесь — SEO и фото.
+  - name: photos
+    label: Фото в тексте
+    widget: list
+    required: false
+    collapsed: true
+    summary: '{{fields.alt}}'
+    hint: Сетка фото внутри текста (на месте строки {{фото}}, иначе в конце текста). Порядок меняется перетаскиванием.
+    fields:
+    - name: image
+      label: Фото
+      widget: image
+      choose_url: false
+    - name: alt
+      label: Подпись (для Google и незрячих)
+      widget: string
+      required: false
+      hint: Что на фото, 3–8 слов. Например «Озеро Кольсай осенью».
+  - name: galleries
+    label: Фотогалереи
+    widget: list
+    required: false
+    collapsed: true
+    summary: '{{fields.title}}'
+    hint: Блоки «Фото …» ниже текста. Удалите все фото из галереи, чтобы убрать её со страницы.
+    fields:
+    - name: id
+      widget: hidden
+    - name: title
+      label: Заголовок галереи
+      widget: string
+    - name: photos
+      label: Фото (видны сразу)
+      widget: list
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - name: image
+        label: Фото
+        widget: image
+        choose_url: false
+      - name: alt
+        label: Подпись (для Google и незрячих)
+        widget: string
+        required: false
+        hint: Что на фото, 3–8 слов. Например «Озеро Кольсай осенью».
+    - name: more_label
+      label: Надпись над скрытыми фото
+      widget: string
+      required: false
+      hint: Например «Ещё фото с наших поездок». Число фото добавится само.
+    - name: more
+      label: Ещё фото (открываются по клику)
+      widget: list
+      required: false
+      collapsed: true
+      summary: '{{fields.alt}}'
+      fields:
+      - name: image
+        label: Фото
+        widget: image
+        choose_url: false
+      - name: alt
+        label: Подпись (для Google и незрячих)
+        widget: string
+        required: false
+        hint: Что на фото, 3–8 слов. Например «Озеро Кольсай осенью».
+- name: articles
+  label: Статьи (гид)
+  label_singular: Статья
+  folder: articles
+  extension: md
+  format: yaml-frontmatter
+  create: true
+  delete: false
+  i18n:
+    structure: multiple_files
+    locales:
+    - en
+    - ru
+    default_locale: en
+  slug:
+    editable: true
+    i18n: duplicate
+  identifier_field: title
+  summary: '{{fields.title}} · {{fields.status}}'
+  sortable_fields:
+  - date
+  - title
+  view_groups:
+    default: status
+    groups:
+    - name: status
+      label: Статус
+      field: status
+  editor:
+    preview: false
+  description: 'Статьи раздела «Гид» (/en/guide/…, /ru/guide/…). Английская версия — основная, русская — вкладка в редакторе.
+    «Черновик» виден только на проверочном сайте с жёлтой плашкой, на almaty-travel.kz — только «Опубликовано». Удаление отключено:
+    чтобы убрать статью, верните её в черновик.'
+  fields:
+  - name: title
+    label: Заголовок
+    widget: string
+    i18n: true
+  - name: description
+    label: 'SEO: описание для Google'
+    widget: text
+    i18n: true
+    hint: До ~155 символов.
+  - name: status
+    label: Статус
+    widget: select
+    i18n: true
+    default: draft
+    options:
+    - label: Черновик
+      value: draft
+    - label: Опубликовано
+      value: published
+  - name: date
+    label: Дата
+    widget: datetime
+    i18n: duplicate
+    time_format: false
+    format: YYYY-MM-DD
+    default: '{{now}}'
+  - name: image
+    label: Обложка
+    widget: image
+    required: false
+    i18n: duplicate
+    choose_url: false
+  - name: image_alt
+    label: Подпись к обложке
+    widget: string
+    required: false
+    i18n: true
+  - name: body
+    label: Текст статьи
+    widget: richtext
+    i18n: true
+    modes:
+    - rich_text
+    - raw
+    buttons:
+    - bold
+    - italic
+    - link
+    - heading-two
+    - heading-three
+    - bulleted-list
+    - numbered-list
+    editor_components: []
+    hint: Подзаголовки — «Заголовок 2» и «Заголовок 3». Ссылки на свои страницы пишите без домена, например /en/tours/.

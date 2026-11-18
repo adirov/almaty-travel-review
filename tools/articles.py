@@ -18,6 +18,7 @@ Two modes:
 To publish: change "status: draft" to "status: published", run preview, commit, rebuild live.
 """
 import html
+import yaml
 import json
 import os
 import re
@@ -54,11 +55,8 @@ def load(repo):
         fm = re.match(r'^---\n(.*?)\n---\n(.*)$', text, re.S)
         if not fm:
             raise SystemExit('articles/%s: front matter (--- ... ---) is missing' % name)
-        meta = {}
-        for line in fm.group(1).split('\n'):
-            if ':' in line and not line.lstrip().startswith('#'):
-                k, v = line.split(':', 1)
-                meta[k.strip()] = v.strip().strip('"')
+        # YAML front matter (the admin panel writes quoted / folded values too)
+        meta = {k: ('' if v is None else str(v).strip()) for k, v in (yaml.safe_load(fm.group(1)) or {}).items()}
         for key in ('title', 'description', 'status', 'date'):
             if not meta.get(key):
                 raise SystemExit('articles/%s: "%s" is required' % (name, key))
@@ -70,14 +68,9 @@ def load(repo):
 
 
 def inline(s, base):
-    s = html.escape(s, quote=False)
-    s = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', s)
-    def link(m):
-        url = m.group(2)
-        if url.startswith('/'):
-            url = base + url
-        return '<a href="%s">%s</a>' % (html.escape(url), m.group(1))
-    return re.sub(r'\[([^\]]+)\]\(([^)\s]+)\)', link, s)
+    """**bold**, _italic_, [link](/en/...), \\-escapes, <br> (same rules as the admin's page text)."""
+    import cms
+    return cms._inline_html(s, base)
 
 
 def markdown(md, base):
@@ -85,7 +78,7 @@ def markdown(md, base):
     def flush():
         nonlocal para, lst
         if para:
-            out.append('<p>%s</p>' % inline(' '.join(para), base))
+            out.append('<p>%s</p>' % '<br>'.join(inline(re.sub(r'\s+', ' ', x).strip(), base) for x in re.split(r'(?:\\|  +)\n', '\n'.join(para))))
             para = []
         if lst:
             tag, items = lst
@@ -191,7 +184,7 @@ def cards(arts, base, lang, home=False):
     ui = UI[lang]
     if home:
         items = ''.join('<li><a href="%s/%s/guide/%s/">%s</a>%s</li>' % (base, lang, a['slug'], html.escape(a['title'], quote=False),
-                        ' <small class="article-tag" style="background:#ffe066;color:#222;padding:1px 6px;font-size:12px">%s</small>' % ui['draft_tag'] if a['status'] == 'draft' else '') for a in arts[:3])
+                        ' <small class="article-tag">%s</small>' % ui['draft_tag'] if a['status'] == 'draft' else '') for a in arts[:3])
         return '%s<div class="home-articles"><h3>%s</h3><ul>%s</ul></div>%s' % (START, ui['latest'], items, END)
     out = ''.join('<section class="guide-card"><h2><a href="%s/%s/guide/%s/">%s</a>%s</h2><p>%s</p></section>' % (
         base, lang, a['slug'], html.escape(a['title'], quote=False),

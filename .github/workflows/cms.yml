@@ -1,0 +1,87 @@
+# Admin panel (/admin/, Sveltia CMS) -> HTML pages -> live-site branch.
+# 1) apply: content files changed by the push are written into the pages (tools/cms.py apply),
+#    articles are re-rendered, the SEO pass runs, and the content files are re-synced from the HTML
+#    (so changes made in code are never reverted). Result is committed back to codex/demo.
+# 2) live: the public build (tools/build_live.py) is committed to the live-site branch.
+# Nothing here touches the hosting: almaty-travel.kz changes only after a deploy (tools/deploy.php).
+name: CMS
+on:
+  push:
+    branches: [codex/demo]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: cms-codex-demo
+  cancel-in-progress: false
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/demo
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --quiet pyyaml pillow
+      - name: Write admin changes into the pages
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -e
+          : > "$RUNNER_TEMP/changed.txt"
+          if [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ] \
+             && git fetch --quiet --no-tags --depth=1 origin "$BEFORE"; then
+            git diff --name-only "$BEFORE" HEAD > "$RUNNER_TEMP/changed.txt"
+          fi
+          PAGES=$(grep -E '^content/pages/(ru|en)/[^/]+\.md$' "$RUNNER_TEMP/changed.txt" || true)
+          if [ -n "$PAGES" ]; then python3 tools/cms.py apply . $PAGES; fi
+          if grep -qE '^(articles/|tools/articles\.py)' "$RUNNER_TEMP/changed.txt"; then python3 tools/articles.py preview .; fi
+          python3 tools/seo_round2.py .
+          python3 tools/cms.py export .
+      - name: Commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -q -m "CMS: страницы обновлены по правкам из админки"
+          for i in 1 2 3 4; do
+            if git pull --quiet --rebase origin codex/demo && git push --quiet origin HEAD:codex/demo; then break; fi
+            sleep $((i * 5))
+          done
+          # a push made with the workflow token does not always start a GitHub Pages build by itself
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" >/dev/null || true
+
+  live:
+    needs: apply
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/demo
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --quiet pyyaml pillow
+      - name: Build the public site
+        run: python3 tools/build_live.py . "$RUNNER_TEMP/out"
+      - name: Commit to live-site
+        run: |
+          set -e
+          SRC_SHA=$(git rev-parse --short HEAD)
+          git fetch --quiet --no-tags --depth=1 origin live-site
+          git worktree add --quiet --detach "$RUNNER_TEMP/live" FETCH_HEAD
+          rsync -a --delete --exclude .git "$RUNNER_TEMP/out/" "$RUNNER_TEMP/live/"
+          cd "$RUNNER_TEMP/live"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "live-site is up to date"; exit 0; fi
+          git commit -q -m "Build $(date +%Y%m%d) from codex/demo $SRC_SHA (auto)"
+          git push --quiet origin HEAD:live-site
