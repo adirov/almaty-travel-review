@@ -1,6 +1,6 @@
 # Админка almaty-travel.kz
 
-Адрес: **https://adirov.github.io/almaty-travel-review/admin/**
+Адрес: **https://www.almaty-travel.kz/redaktor/** (копия: https://adirov.github.io/almaty-travel-review/admin/). Обе работают одинаково и правят один и тот же репозиторий. На сервере адрес `/admin/` занят старой CMS, поэтому `/redaktor/`.
 
 Админка — [Sveltia CMS](https://github.com/sveltia/sveltia-cms), та же, что у школы (snow-school.kz/admin/). Сервер и база данных не нужны: админка открывается в браузере и сохраняет правки прямо в этот репозиторий на GitHub.
 
@@ -58,4 +58,4 @@
 - `build_live.py` в самом конце вызывает `cms.apply_live`: SEO-заголовок, описание и H1 из админки главнее старых SEO-патчей.
 - Нужны `pyyaml` и `pillow` (`pip install pyyaml pillow`).
 - HTML в репозитории с CRLF: скрипты читают и пишут с `newline=''`.
-- Админка и `content/` на almaty-travel.kz не выкладываются (SKIP в `build_live.py`).
+- `content/` на almaty-travel.kz не выкладывается (SKIP в `build_live.py`); админка копируется в `/redaktor/` (`copy_admin()`), в robots.txt — Disallow.

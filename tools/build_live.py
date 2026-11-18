@@ -263,6 +263,22 @@ def main():
         with open(os.path.join(OUT, rel), 'w', encoding='utf-8', newline='') as fh:
             fh.write(s)
     write_extras(pages)
+    copy_admin()
+
+
+ADMIN_PATH = 'redaktor'  # /admin/ on the server is taken by the old CMS (403), so the admin lives at /redaktor/
+
+
+def copy_admin():
+    """Admin panel (Sveltia CMS) at https://www.almaty-travel.kz/redaktor/, copied as is (no analytics, no patches)."""
+    dst = os.path.join(OUT, ADMIN_PATH)
+    os.makedirs(dst, exist_ok=True)
+    shutil.copy(os.path.join(SRC, 'admin', 'index.html'), os.path.join(dst, 'index.html'))
+    with open(os.path.join(SRC, 'admin', 'config.yml'), encoding='utf-8') as fh:
+        cfg = fh.read()
+    cfg = re.sub(r'(?m)^site_url: .*$', 'site_url: %s/ru/' % HOST, cfg)
+    with open(os.path.join(dst, 'config.yml'), 'w', encoding='utf-8') as fh:
+        fh.write(cfg)
 
 
 def write_extras(pages):
@@ -284,7 +300,7 @@ def write_extras(pages):
         fh.write('</urlset>\n')
     with open(os.path.join(OUT, 'robots.txt'), 'w', encoding='utf-8') as fh:
         fh.write('User-agent: *\n'
-                 'Disallow: /cms/\nDisallow: /admin/\nDisallow: /base/\nDisallow: /block/\nDisallow: /cache/\n'
+                 'Disallow: /cms/\nDisallow: /admin/\nDisallow: /redaktor/\nDisallow: /base/\nDisallow: /block/\nDisallow: /cache/\n'
                  'Disallow: /mod/\nDisallow: /temp/\nDisallow: /sql/\nDisallow: /ext/\nDisallow: /kaztour.com.kz/\n'
                  'Disallow: /lead.php\nDisallow: /ajax.php\n\n'
                  'Sitemap: %s/sitemap.xml\n' % HOST)
