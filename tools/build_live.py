@@ -22,7 +22,8 @@ BASE = '/almaty-travel-review'
 HOST = 'https://www.almaty-travel.kz'
 BUILD_VERSION = date.today().strftime('%Y%m%d') + 'f'
 RECAPTCHA_SITE_KEY = '6LdnN08sAAAAACbRJvizxAs1wwfjlXkNb6WNS0o7'  # public key, same as the old site
-SKIP = {'.git', '.github', '.gitignore', 'README.md', 'demo.css', 'demo.js', 'tools', 'articles', 'robots.txt', '.nojekyll'}
+SKIP = {'.git', '.github', '.gitignore', 'README.md', 'demo.css', 'demo.js', 'tools', 'articles', 'robots.txt', '.nojekyll',
+        'admin', 'content', 'docs'}  # admin panel, its content files and docs stay on the review site
 TEXT_EXT = ('.html', '.css', '.js', '.xml', '.txt', '.json', '.svg', '.webmanifest')
 
 OWNER_GTM = """<!-- Almaty Travel: owner-managed analytics -->
@@ -255,6 +256,9 @@ def main():
                     os.rmdir(d)
                     d = os.path.dirname(d)
     pages = dedupe_descriptions(sorted(page_map.items()))
+    # admin panel (content/pages/*.md, tools/cms.py): its title/description/H1 are the last word
+    import cms
+    pages = sorted(cms.apply_live(dict(pages), SRC).items())
     for rel, s in pages:
         with open(os.path.join(OUT, rel), 'w', encoding='utf-8', newline='') as fh:
             fh.write(s)
