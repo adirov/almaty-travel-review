@@ -282,11 +282,11 @@ def page(key, title, desc, h1=None, block=None, anchor='cta'):
     P[key] = dict(title=title, desc=desc, h1=h1, block=block, anchor=anchor)
 
 
-page('en/index.html', 'Private Tours from Almaty with a Driver-Guide',
-     'Private 4x4 tours from Almaty since 2011: Charyn Canyon, Kolsai and Kaindy lakes, Altyn-Emel. English-speaking driver-guide, hotel pickup, park fees.',
+page('en/index.html', 'Private SUV Tours from Almaty with a Driver-Guide',
+     'Almaty travel agency since 2011. Private SUV tours with an English-speaking driver-guide: Charyn Canyon, Kolsai and Kaindy lakes, Altyn-Emel. 1–6 days.',
      'Private Tours from Almaty with an English-Speaking Driver-Guide', HOME_EN, 'home')
-page('ru/index.html', 'Частные туры из Алматы с гидом-водителем',
-     'Частные туры на внедорожнике 4x4 из Алматы с 2011 года: Чарын, Кольсай и Каинды, Алтын-Эмель. Гид-водитель, встреча в отеле, билеты в парки включены.',
+page('ru/index.html', 'Частные туры из Алматы на внедорожнике с гидом-водителем',
+     'Турагентство в Алматы с 2011 года. Частные туры на внедорожнике 4x4 с гидом-водителем: Чарын, озёра Кольсай и Каинды, Алтын-Эмель. Туры на 1–6 дней.',
      'Частные туры из Алматы с гидом-водителем', HOME_RU, 'home')
 P['index.html'] = P['ru/index.html']  # stale root copy (the live build replaces it with ru/index.html)
 page('en/private-tours/1-day-charyn/index.html', 'Private Charyn Canyon Tour from Almaty (1 Day)',
